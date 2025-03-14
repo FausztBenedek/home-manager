@@ -3,6 +3,27 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "benedekFausztHomeManagerModules",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741174782,
+        "narHash": "sha256-dYRebJk58/d5Ej1G6xTOadTfG6tU5zFgXYrLsRJlrgw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "def0dbbcea715d4514ca343ab4d6d7f3a1742da0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -38,7 +59,7 @@
     },
     "root": {
       "inputs": {
-        "home-manager": "home-manager",
+        "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs"
       }
     }

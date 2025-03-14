@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ self, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
     gnumake
@@ -26,7 +26,7 @@
     history = "print -z $(sort ~/.zsh_history | sort | uniq | fzf)";
   };
   home.sessionVariables = {
-    HOME_MANAGER_LOCATION = lib.mkDefault "";
+    HOME_MANAGER_LOCATION = lib.mkDefault "${self}";
   };
   programs = {
     eza = {

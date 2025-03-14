@@ -1,0 +1,351 @@
+# Place a copy of this config to ~/.aerospace.toml
+# After that, you can edit ~/.aerospace.toml to your liking
+
+# You can use it to add commands that run after login to macOS user session.
+# 'start-at-login' needs to be 'true' for 'after-login-command' to work
+# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+after-login-command = []
+
+# You can use it to add commands that run after AeroSpace startup.
+# 'after-startup-command' is run after 'after-login-command'
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = [
+  # JankyBorders has a built-in detection of already running process,
+  # so it won't be run twice on AeroSpace restart
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers                         = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 30
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = false
+
+# See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
+[exec.env-vars]
+PATH = '${HOME}/.nix-profile/bin:${PATH}'
+
+# Possible values: (qwerty|dvorak)
+# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+[key-mapping]
+preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
+#                 See:
+#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[gaps]
+inner.horizontal = 20
+inner.vertical   = 20
+outer.left       = 10
+outer.bottom     = 10
+outer.top        = 10
+outer.right      = 10
+
+# 'main' binding mode declaration
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# 'main' binding mode must be always presented
+# Fallback value (if you omit the key): mode.main.binding = {}
+[mode.main.binding]
+
+# All possible keys:
+# - Letters.        a, b, c, ..., z
+# - Numbers.        0, 1, 2, ..., 9
+# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+# - F-keys.         f1, f2, ..., f20
+# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
+#                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
+#                   backspace, tab
+# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+#                   keypadMinus, keypadMultiply, keypadPlus
+# - Arrows.         left, down, up, right
+
+# All possible modifiers: cmd, alt, ctrl, shift
+
+# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
+# You can uncomment the following lines to open up terminal with alt + enter shortcut
+# (like in i3)
+# alt-enter = '''exec-and-forget osascript -e '
+# tell application "Terminal"
+#     do script
+#     activate
+# end tell'
+# '''
+cmd-h     = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+
+alt-tab = [
+  'workspace-back-and-forth',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+ctrl-a = [
+  'mode window-manager',
+  'exec-and-forget paint-borders-aerospace-window-manager-mode',
+]
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#focus
+ctrl-cmd-h = 'focus left'
+ctrl-cmd-j = 'focus down'
+ctrl-cmd-k = 'focus up'
+ctrl-cmd-l = 'focus right'
+
+
+[mode.window-manager.binding]
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+o = 'close'
+ctrl-o = [
+  'close',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+alt-tab = [
+  'workspace-back-and-forth',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+ctrl-a = ['mode main', 'exec-and-forget paint-borders-aerospace-main-mode']
+esc = ['mode main', 'exec-and-forget paint-borders-aerospace-main-mode']
+backspace = ['mode main', 'exec-and-forget paint-borders-aerospace-main-mode']
+enter = ['mode main', 'exec-and-forget paint-borders-aerospace-main-mode']
+
+# App shortcuts
+t = 'exec-and-forget alacritty'
+ctrl-t = [
+  'exec-and-forget alacritty',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# Fuzzy focus window
+# Workaround explained: _open_floating_alacritty_to_select_window opens an alacritty, and writes the window_id into the file, where the subsequent command reads it out. 
+# I wanted to issue the focus command from that floating alacritty instance, but it kept jumpint back to the previous workspace after the floating terminal exited. This
+# file solution is my workaround.
+a = [
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+  'exec-and-forget _aerospace_jump_to_window_after_fuzzy_search',
+]
+
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+i = 'layout tiles horizontal vertical'
+u = 'layout accordion horizontal vertical'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#focus
+h = 'focus left'
+j = 'focus down'
+k = 'focus up'
+l = 'focus right'
+left = 'focus left'
+down = 'focus down'
+up = 'focus up'
+right = 'focus right'
+ctrl-cmd-h = [
+  'focus left',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+ctrl-cmd-j = [
+  'focus down',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+ctrl-cmd-k = [
+  'focus up',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+ctrl-cmd-l = [
+  'focus right',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+shift-h = 'move left'
+shift-j = 'move down'
+shift-k = 'move up'
+shift-l = 'move right'
+
+# Joining windows
+ctrl-h = 'join-with left'
+ctrl-j = 'join-with down'
+ctrl-k = 'join-with up'
+ctrl-l = 'join-with right'
+# See: https://nikitabobko.github.io/AeroSpace/commands#resize
+p = 'resize smart -50'
+n = 'resize smart +50'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
+f = 'fullscreen'
+ctrl-f = [
+  'fullscreen',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+1 = 'workspace 1'
+ctrl-1 = [
+  'workspace 1',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-1 = 'move-node-to-workspace 1'
+2 = 'workspace 2'
+ctrl-2 = [
+  'workspace 2',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-2 = 'move-node-to-workspace 2'
+3 = 'workspace 3'
+ctrl-3 = [
+  'workspace 3',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-3 = 'move-node-to-workspace 3'
+
+c = 'workspace Command'
+ctrl-c = [
+  'workspace Command',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-c = 'move-node-to-workspace Command'
+d = 'workspace Development'
+ctrl-d = [
+  'workspace Development',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-d = 'move-node-to-workspace Development'
+e = 'workspace Explore'
+ctrl-e = [
+  'workspace Explore',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-e = 'move-node-to-workspace Explore'
+r = 'workspace Related'
+ctrl-r = [
+  'workspace Related',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-r = 'move-node-to-workspace Related'
+q = 'workspace Query'
+ctrl-q = [
+  'workspace Query',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-q = 'move-node-to-workspace Query'
+s = 'workspace Shelf'
+ctrl-s = [
+  'workspace Shelf',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-s = 'move-node-to-workspace Shelf'
+v = 'workspace View'
+ctrl-v = [
+  'workspace View',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-v = 'move-node-to-workspace View'
+w = 'workspace Whisper'
+ctrl-w = [
+  'workspace Whisper',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-w = 'move-node-to-workspace Whisper'
+x = 'workspace Xecute'
+ctrl-x = [
+  'workspace Xecute',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+shift-x = 'move-node-to-workspace Xecute'
+
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+#alt-tab = ['workspace-back-and-forth', 'mode main']
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+m = 'move-workspace-to-monitor --wrap-around next'
+ctrl-m = [
+  'move-workspace-to-monitor --wrap-around next',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+comma = 'mode service'
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+esc = [
+  'reload-config',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+r = [
+  'flatten-workspace-tree',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+] # reset layout
+f = [
+  'layout floating tiling',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+] # Toggle between floating and tiling layout
+backspace = [
+  'close-all-windows-but-current',
+  'mode main',
+  'exec-and-forget paint-borders-aerospace-main-mode',
+]
+
+# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+[[on-window-detected]]
+if.window-title-regex-substring = 'Aerospace-Selector'
+run                             = 'layout floating'

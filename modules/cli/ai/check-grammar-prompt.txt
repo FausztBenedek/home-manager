@@ -1,0 +1,6 @@
+Please analyze the following text for errors and areas for improvement. For each identified issue, provide:
+
+The specific correction,
+A brief explanation of why the correction is necessary (e.g., to improve clarity, grammar, or overall style).
+Below is the text to review
+""" {{text}} """

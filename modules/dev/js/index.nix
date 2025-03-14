@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./nvm/index.nix
+  ];
+}

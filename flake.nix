@@ -11,18 +11,25 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      forAllSystems = function:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+          "aarch64-darwin"
+        ]
+          (system: function nixpkgs.legacyPackages.${system});
+
     in
     {
+
       homeManagerModules = import ./modules/index.nix;
-      homeConfigurations."default" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."default" = forAllSystems (pkgs: home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit self; };
         modules = [
           ./modules/index.nix
           ./default-options.nix
         ];
-      };
+      });
     };
 }

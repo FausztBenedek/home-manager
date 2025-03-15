@@ -14,7 +14,6 @@
     utm
     podman
     podman-desktop # The podman binary has to be set explicitly. It must be the nix-store one, but by selecting the symlink in `~/.nix-profile/`, it resolves to the nix store.
-    podman-tui
     gnugrep
     (pkgs.writeShellScriptBin "openports" ''
       # Facher's solution lsof -i -P | grep -i "listen"

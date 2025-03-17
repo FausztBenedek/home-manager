@@ -34,6 +34,7 @@
       taplo # TOML formatter
 
       #Language servers
+      pyright # python
       jdt-language-server # For java, the eclipse language server
       lombok # For jdt-language-server's lombok support
       lua-language-server

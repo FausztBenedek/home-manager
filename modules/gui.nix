@@ -11,6 +11,7 @@
   };
   config = lib.mkIf config.option.gui.enable {
     home.packages = with pkgs; [
+      podman-desktop # The podman binary has to be set explicitly. It must be the nix-store one, but by selecting the symlink in `~/.nix-profile/`, it resolves to the nix store.
       nerd-fonts.zed-mono
       # Depricated form:
       #(pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; }) # Available fonts https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix, then when I open apple fonts, the font name is visible

@@ -45,3 +45,16 @@ set errorformat+={\"name\":%*\[\ \]\"%m\"\\,%*\\s\"ref\":%*\\s\"%f:%l\"}\\, " Er
 set errorformat+={\"name\":%*\[\ \]\"%m\"\\,%*\\s\"ref\":%*\\s\"%f\"}\\, " Error format without line number
 set errorformat+={\"name\":%*\[\ \]\"%m\"\\,%*\\s\"ref\":%*\\s\"%f:%l\"} " Error format with line number without comma
 set errorformat+={\"name\":%*\[\ \]\"%m\"\\,%*\\s\"ref\":%*\\s\"%f\"} " Error format without line number without comma
+
+
+" Jump to the next word starting with the given letter
+nnoremap <c-f> :call SearchWordForward()<CR>
+nnoremap <c-f><c-f> :call SearchWordBackward()<CR>
+function! SearchWordForward()
+  let l:char = nr2char(getchar())
+  execute "normal! /\\\<" . l:char . ""
+endfunction
+function! SearchWordBackward()
+  let l:char = nr2char(getchar())
+  execute "normal! ?\\\<" . l:char . ""
+endfunction

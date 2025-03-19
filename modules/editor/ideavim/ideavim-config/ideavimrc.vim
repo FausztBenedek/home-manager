@@ -4,7 +4,8 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 let mapleader = " "
 
-source $HOME_MANAGER_LOCATION/vim/common-keymaps.vim
+" TODO Ideavim cannot use environment variables https://youtrack.jetbrains.com/issue/VIM-2143/expand-environment-variables-in-source-command
+source /Users/benedekfauszt/.config/home-manager/public/vim/common-keymaps.vim
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the

@@ -18,6 +18,7 @@
     ];
     home.shellAliases = {
       intellij = "open -a \"IntelliJ IDEA\" .";
+      idea = "/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea";
       webstorm = "open -a WebStorm .";
     };
 

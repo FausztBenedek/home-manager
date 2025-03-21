@@ -1,6 +1,7 @@
 { self, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    coreutils
     gnumake
     wget
     yq-go

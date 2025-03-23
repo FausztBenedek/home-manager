@@ -1,5 +1,5 @@
 " TODO Ideavim cannot use environment variables https://youtrack.jetbrains.com/issue/VIM-2143/expand-environment-variables-in-source-command
-source /Users/benedekfauszt/.config/home-manager/public/vim/wrapping.vim
+source /Users/benedekfauszt/.config/home-manager/vim/wrapping.vim
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

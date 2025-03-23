@@ -3,27 +3,6 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "benedekFausztHomeManagerModules",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1741174782,
-        "narHash": "sha256-dYRebJk58/d5Ej1G6xTOadTfG6tU5zFgXYrLsRJlrgw=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "def0dbbcea715d4514ca343ab4d6d7f3a1742da0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -57,10 +36,27 @@
         "type": "github"
       }
     },
+    "private-configs": {
+      "locked": {
+        "lastModified": 1742798959,
+        "narHash": "sha256-Wp0O8QFOlos/uEtNiA/6o53OZdd9MDAhSr6VCGLm06o=",
+        "ref": "master",
+        "rev": "c578565e140fab9b03131c6b4820c4eabbf1b063",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/FausztBenedek/sensitive-nix-config"
+      },
+      "original": {
+        "ref": "master",
+        "type": "git",
+        "url": "ssh://git@github.com/FausztBenedek/sensitive-nix-config"
+      }
+    },
     "root": {
       "inputs": {
-        "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs"
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "private-configs": "private-configs"
       }
     }
   },

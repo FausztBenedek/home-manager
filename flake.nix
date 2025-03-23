@@ -7,29 +7,41 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    private-configs.url = "git+ssh://git@github.com/FausztBenedek/sensitive-nix-config?ref=master";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, private-configs, ... }:
     let
-      forAllSystems = function:
-        nixpkgs.lib.genAttrs [
-          "x86_64-linux"
-          "aarch64-linux"
-          "aarch64-darwin"
-        ]
-          (system: function nixpkgs.legacyPackages.${system});
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "aarch64-darwin"
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
     in
     {
-
-      homeManagerModules = import ./modules/index.nix;
-      homeConfigurations."default" = forAllSystems (pkgs: home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit self; };
-        modules = [
-          ./modules/index.nix
-          ./default-options.nix
-        ];
+      packages = forAllSystems (system: {
+        homeConfigurations.default = home-manager.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.${system};
+            extraSpecialArgs = { inherit self; };
+            modules = [
+              ./modules/index.nix
+              ./default-options.nix
+            ];
+          };
       });
+
+      homeConfigurations = {
+        "kn" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit self; };
+          modules = [
+            ./modules/index.nix
+            private-configs.kn
+          ];
+        };
+      };
     };
 }

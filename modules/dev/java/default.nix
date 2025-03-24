@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./java.nix
+    ./java-module.nix
   ];
 }

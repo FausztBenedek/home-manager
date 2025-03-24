@@ -12,12 +12,8 @@
     findutils
     tealdeer
     lnav
-    utm
     podman
     gnugrep
-    (python3.withPackages (python-pkgs: [
-      python-pkgs.kubernetes
-    ]))
     (pkgs.writeShellScriptBin "openports" ''
       # Facher's solution lsof -i -P | grep -i "listen"
       (echo 'port pid app' && netstat -anvp tcp  | awk '/LISTEN/ {sub(/^.*\./, "", $4); print $4"|"$9}' | uniq | sort --numeric-sort | column -t -s "|" | while read port pid; do echo "$port $(ps -e -o pid,comm | awk "/$pid / {print $2}")" | grep $pid | head -n 1; done) | column -t

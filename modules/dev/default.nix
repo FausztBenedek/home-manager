@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./js
     ./java
+    ./js
+    ./python
   ];
 }

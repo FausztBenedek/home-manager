@@ -5,8 +5,7 @@
   option.cli.cloud.aws.enable = false;
   option.cli.tools.safe-rm.enable = false;
   option.editor.jetbrains.enable = false;
-  option.mac.aerospace.enable = false;
-  option.mac.maccy.enable = false;
+  option.mac.enable = false;
   option.dev.js.enable = false;
   option.dev.python.enable = false;
   option.dev.java.enable = false;

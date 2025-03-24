@@ -1,4 +1,4 @@
-{ lib, config, pkgs, self, ... }:
+{ lib, pkgs, self, ... }:
 
 {
   home.stateVersion = "23.11";

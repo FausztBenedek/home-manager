@@ -14,7 +14,7 @@
   };
   home.packages = [
     (pkgs.writeShellScriptBin "my-snippet-engine" ''
-      template_dir="${config.home.sessionVariables.HOME_MANAGER_LOCATION}/modules/cli/commands/snippets/"
+      template_dir="${config.home.sessionVariables.HM}/modules/cli/commands/snippets/"
       selected_file=$(grep -H '^#' "$template_dir"* | sed 's/:# /: /' | fzf --delimiter=: --with-nth=2.. | cut -d: -f1)
       if [ -z "$selected_file" ]; then
           exit 1
@@ -25,7 +25,7 @@
   ];
 
   home.sessionVariables = {
-    SNIPPETS = "${config.home.sessionVariables.HOME_MANAGER_LOCATION}/modules/cli/commands/snippets/";
+    SNIPPETS = "${config.home.sessionVariables.HM}/modules/cli/commands/snippets/";
   };
 
 }

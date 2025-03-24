@@ -44,7 +44,7 @@
       '')
     ];
     home.file = {
-      ".config/aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.HOME_MANAGER_LOCATION}/modules/mac/aerospace.toml";
+      ".config/aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.HM}/modules/mac/aerospace.toml";
     };
   };
 }

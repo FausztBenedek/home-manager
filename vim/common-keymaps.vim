@@ -5,8 +5,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>vk :vs<space>$HOME_MANAGER_LOCATION/vim/common-keymaps.vim<cr>| " Opens the common-keymaps.vim file
-nnoremap <leader>vs :source<space>$HOME_MANAGER_LOCATION/vim/common-keymaps.vim<cr>| " sources the keymap file
+nnoremap <leader>vk :vs<space>$HM/vim/common-keymaps.vim<cr>| " Opens the common-keymaps.vim file
+nnoremap <leader>vs :source<space>$HM/vim/common-keymaps.vim<cr>| " sources the keymap file
 
 vnoremap <leader>w" <esc>`>a"<esc>`<i"<esc>| "Wrap selection into ""
 vnoremap <leader>w' <esc>`>a'<esc>`<i'<esc>| "Wrap selection into ''

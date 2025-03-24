@@ -1,4 +1,4 @@
-{ self, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     coreutils
@@ -22,9 +22,6 @@
   ];
   home.shellAliases = {
     history = "print -z $(sort ~/.zsh_history | sort | uniq | fzf)";
-  };
-  home.sessionVariables = {
-    HOME_MANAGER_LOCATION = lib.mkDefault "${self}";
   };
   programs = {
     eza = {

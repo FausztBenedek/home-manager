@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, self, ... }:
 
 {
   home.stateVersion = "23.11";
 
   home.sessionVariables = {
-    HM = "${config.home.sessionVariables.HOME_MANAGER_LOCATION}";
+    HM = lib.mkDefault "${self}";
   };
 
   programs = {

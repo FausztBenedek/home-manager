@@ -8,6 +8,7 @@
 
     home.packages = with pkgs; [
       utm
+      podman-desktop # The podman binary has to be set explicitly. It must be the nix-store one, but by selecting the symlink in `~/.nix-profile/`, it resolves to the nix store.
     ];
   };
 }

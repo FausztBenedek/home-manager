@@ -1,6 +1,10 @@
 { lib, pkgs, self, ... }:
 
 {
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
   home.stateVersion = "23.11";
 
   home.sessionVariables = {

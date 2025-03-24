@@ -1,9 +1,10 @@
 { config, pkgs, lib, ... }:
 {
   options = {
+    option.dev.js.nvm.enable = lib.mkEnableOption "Enable nvm";
     additionalNvmCommands = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
+      default = [ ];
       description = "Commands to set up nvm, like installing another node version";
     };
   };
@@ -21,7 +22,7 @@
         ] ++ config.additionalNvmCommands;
       };
     in
-    {
+    lib.mkIf config.option.dev.js.nvm.enable {
       home.packages = [
         nvm
       ];

@@ -7,6 +7,7 @@
   option.editor.jetbrains.enable = false;
   option.mac.aerospace.enable = false;
   option.mac.maccy.enable = false;
+  option.dev.js.enable = false;
   git = {
     name = "FausztBenedek";
     email = "fausztb@gmail.com";

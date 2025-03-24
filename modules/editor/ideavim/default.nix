@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./ideavim.nix
+  ];
+}

@@ -27,7 +27,7 @@
             pkgs = nixpkgs.legacyPackages.${system};
             extraSpecialArgs = { inherit self; };
             modules = [
-              ./modules/index.nix
+              ./modules
               ./default-options.nix
             ];
           };
@@ -38,7 +38,7 @@
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit self; };
           modules = [
-            ./modules/index.nix
+            ./modules
             private-configs.kn
           ];
         };

@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./aws/index.nix
-    ./k8s/index.nix
+    ./aws
+    ./k8s
     ./cloud-tools.nix
   ];
 }

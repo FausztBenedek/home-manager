@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./nvm/index.nix
+    ./js
+    ./java
   ];
 }

@@ -31,28 +31,52 @@
           # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml
           # Default colors
           primary = {
-            background = "#282726";
-            foreground = "#FFFCF0";
+            background = "#fcfdfd";
+            foreground = "#4c4f69";
 
-            dim_foreground = "#FFFCF0";
-            bright_foreground = "#FFFCF0";
+            dim_foreground = "#5c5f79";
+            bright_foreground = "#1f2020";
           };
           # Cursor colors
           cursor = {
-            text = "#0F0C00";
-            cursor = "#A02F6F";
+            text = "#4c4f69";
+            cursor = "#CE5D97";
           };
           # Normal colors
           normal = {
-            black = "#100F0F";
-            red = "#AF3029";
-            green = "#66800B";
-            yellow = "#AD8301";
-            blue = "#205EA6";
-            magenta = "#A02F6F";
+            black = "#0c0f29";
+            red = "#D14D41";
+            green = "#879A39";
+            yellow = "#D0A215";
+            blue = "#4385BE";
+            magenta = "#CE5D97";
             cyan = "#24837B";
             white = "#FFFCF0";
           };
+          # My old color config
+          #primary = {
+          #  background = "#282726";
+          #  foreground = "#FFFCF0";
+
+          #  dim_foreground = "#FFFCF0";
+          #  bright_foreground = "#FFFCF0";
+          #};
+          ## Cursor colors
+          #cursor = {
+          #  text = "#0F0C00";
+          #  cursor = "#A02F6F";
+          #};
+          ## Normal colors
+          #normal = {
+          #  black = "#100F0F";
+          #  red = "#AF3029";
+          #  green = "#66800B";
+          #  yellow = "#AD8301";
+          #  blue = "#205EA6";
+          #  magenta = "#A02F6F";
+          #  cyan = "#24837B";
+          #  white = "#FFFCF0";
+          #};
 
           # Bright colors
           bright = {

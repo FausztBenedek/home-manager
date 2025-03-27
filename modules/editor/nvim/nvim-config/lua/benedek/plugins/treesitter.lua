@@ -4,10 +4,12 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
+    "nvim-treesitter/nvim-treesitter-refactor",
   },
   config = function()
     -- import nvim-treesitter plugin
     local treesitter = require("nvim-treesitter.configs")
+    vim.opt.updatetime = 0 -- Allows to highlight variables that are under the cursor immediately
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
@@ -60,6 +62,13 @@ return {
           node_incremental = "Ż",
           scope_incremental = false,
           node_decremental = "∆",
+        },
+      },
+      refactor = { -- Allows to highlight variables that are under the cursor
+        highlight_definitions = {
+          enable = true,
+          -- Set to false if you have an `updatetime` of ~100.
+          clear_on_cursor_move = true,
         },
       },
     })

@@ -19,7 +19,8 @@ return function()
   local vue_language_server_path = vue_path .. "/language-server"
   if not isdir(vue_typescriptpath) or not isdir(vue_language_server_path) then
     print(
-      "ERROR Vue LSP will not work, check if you installed @vue/typescript-plugin and @vue/language-server globally with node " .. node_version
+      "ERROR Vue LSP will not work, check if you installed @vue/typescript-plugin and @vue/language-server globally with node "
+        .. node_version
     )
   end
   require("lspconfig").ts_ls.setup({
@@ -29,7 +30,7 @@ return function()
           name = "@vue/typescript-plugin",
           -- Change this to the location the plugin is installed to
           location = vue_typescriptpath,
-          languages = { "javascript", "typescript", "vue", "tsx" },
+          languages = { "javascript", "typescript", "typescriptreact", "vue", "tsx" },
         },
         {
           name = "@vue/typescript-plugin",
@@ -41,6 +42,7 @@ return function()
     filetypes = {
       "javascript",
       "typescript",
+      "typescriptreact",
       "vue",
       "tsx",
     },

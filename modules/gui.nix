@@ -40,7 +40,7 @@
           # Cursor colors
           cursor = {
             text = "#0F0C00";
-            cursor = "#FFFCF0";
+            cursor = "#A02F6F";
           };
           # Normal colors
           normal = {

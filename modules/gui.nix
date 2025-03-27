@@ -12,6 +12,7 @@
   config = lib.mkIf config.option.gui.enable {
     home.packages = with pkgs; [
       nerd-fonts.zed-mono
+      nerd-fonts.jetbrains-mono
       # Depricated form:
       #(pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; }) # Available fonts https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix, then when I open apple fonts, the font name is visible
     ];
@@ -22,10 +23,12 @@
     };
 
     programs = {
-      alacritty = lib.mkIf config.option.mac.enable { # Alacritty only worked on mac so far, TODO Make it work on linux
+      alacritty = lib.mkIf config.option.mac.enable {
+        # Alacritty only worked on mac so far, TODO Make it work on linux
         enable = true;
-        settings.font.normal.family = "ZedMono Nerd Font Mono";
-        settings.font.size = 16;
+        #settings.font.normal.family = "ZedMono Nerd Font Mono"; # My previous fond
+        settings.font.normal.family = "JetBrainsMono Nerd Font";
+        settings.font.size = 14;
         settings.window.decorations = "Buttonless";
         settings.colors = {
           # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml

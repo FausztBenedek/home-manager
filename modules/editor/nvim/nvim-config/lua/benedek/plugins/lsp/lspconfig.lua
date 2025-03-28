@@ -16,6 +16,17 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
+        vim.diagnostic.config({
+          virtual_text = true,
+          signs = true,
+          underline = true,
+          update_in_insert = false,
+          float = {
+            border = "rounded",
+            source = true,
+          },
+          severity_sort = true,
+        })
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
@@ -25,7 +36,7 @@ return {
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
         opts.desc = "LSP incoming_calls to quickfixlist"
-        vim.keymap.set("n", "gr", vim.lsp.buf.incoming_calls, opts) -- show definition, references
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
 
         opts.desc = "Go to declaration"
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration

@@ -52,8 +52,12 @@ return {
         vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
         opts.desc = "See available code actions"
-        --vim.diagnostic.open_float()
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
+        opts.desc = "Toggle inlay hint"
+        vim.keymap.set({ "n", "v" }, "<leader>ch", function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, opts)
 
         opts.desc = "Smart rename"
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename

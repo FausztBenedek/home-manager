@@ -3,9 +3,8 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-c>", ":noh<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-q>", ":<c-u>q<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-q>", ":<c-u>tabc<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-l>", ":<c-u>tabn<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-h>", ":<c-u>tabp<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-n>", ":<c-u>tabn<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-p>", ":<c-u>tabp<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "ú", "]", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "ő", "[", { noremap = false, silent = true })
 

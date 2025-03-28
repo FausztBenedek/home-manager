@@ -1,3 +1,5 @@
-return function()
-  require("lspconfig").terraformls.setup({})
+return function(config)
+  require("lspconfig").terraformls.setup({
+    capabilities = config.capabilities,
+  })
 end

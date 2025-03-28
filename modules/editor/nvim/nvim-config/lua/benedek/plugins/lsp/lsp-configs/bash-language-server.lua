@@ -1,3 +1,5 @@
-return function()
-  require("lspconfig").bashls.setup({})
+return function(config)
+  require("lspconfig").bashls.setup({
+    capabilities = config.capabilities,
+  })
 end

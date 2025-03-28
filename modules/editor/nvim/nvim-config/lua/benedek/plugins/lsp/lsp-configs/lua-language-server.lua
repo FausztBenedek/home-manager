@@ -1,5 +1,6 @@
-return function()
+return function(config)
   require("lspconfig").lua_ls.setup({
+    capabilities = config.capabilities,
     on_init = function(client)
       if client.workspace_folders then
         local path = client.workspace_folders[1].name

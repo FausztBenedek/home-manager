@@ -3,13 +3,14 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
     local configurationFunctions = require("benedek.plugins.lsp.lsp-configs.configs")
+    capabilities = require("blink.cmp").get_lsp_capabilities()
     for i = 1, #configurationFunctions do
-      configurationFunctions[i]()
+      configurationFunctions[i]({ capabilities = capabilities })
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -22,9 +23,9 @@ return {
         -- set keybinds
         opts.desc = "Show LSP references"
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-        
+
         opts.desc = "LSP incoming_calls to quickfixlist"
-        vim.keymap.set("n", "gr",vim.lsp.buf.incoming_calls, opts) -- show definition, references
+        vim.keymap.set("n", "gr", vim.lsp.buf.incoming_calls, opts) -- show definition, references
 
         opts.desc = "Go to declaration"
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration

@@ -12,7 +12,7 @@ local function isdir(path)
   return exists(path .. "/")
 end
 
-return function()
+return function(config)
   local node_version = "v20.11.0"
   local vue_path = os.getenv("NVM_DIR") .. "/versions/node/" .. node_version .. "/lib/node_modules/@vue"
   local vue_typescriptpath = vue_path .. "/typescript-plugin"
@@ -24,6 +24,7 @@ return function()
     )
   end
   require("lspconfig").ts_ls.setup({
+    capabilities = config.capabilities,
     init_options = {
       plugins = {
         {

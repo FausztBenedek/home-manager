@@ -1,5 +1,6 @@
-return function()
+return function(config)
   require("lspconfig").nixd.setup({
+    capabilities = config.capabilities,
     cmd = { "nixd" },
     settings = {
       nixd = {

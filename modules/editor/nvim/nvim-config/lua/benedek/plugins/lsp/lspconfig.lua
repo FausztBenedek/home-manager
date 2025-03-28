@@ -8,10 +8,11 @@ return {
   },
   config = function()
     local configurationFunctions = require("benedek.plugins.lsp.lsp-configs.configs")
-    capabilities = require("blink.cmp").get_lsp_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     for i = 1, #configurationFunctions do
       configurationFunctions[i]({ capabilities = capabilities })
     end
+    vim.lsp.inlay_hint.enable(true)
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -38,14 +39,14 @@ return {
         opts.desc = "LSP incoming_calls to quickfixlist"
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
 
-        opts.desc = "Go to declaration"
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
         opts.desc = "Show LSP definitions"
-        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definitions
 
         opts.desc = "Show LSP implementations"
-        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        vim.keymap.set("n", "gi", vim.lsp.buf.incoming_calls, opts) -- show lsp implementations
+
+        opts.desc = "Show LSP implementations"
+        vim.keymap.set("n", "gI", "<cmd>Telescope lsp_incoming_calls<cr>", opts) -- show lsp implementations
 
         opts.desc = "Show LSP type definitions"
         vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions

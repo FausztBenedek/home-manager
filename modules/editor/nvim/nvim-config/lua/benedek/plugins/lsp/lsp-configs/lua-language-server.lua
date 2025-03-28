@@ -30,7 +30,11 @@ return function(config)
       })
     end,
     settings = {
-      Lua = {},
+      Lua = {
+        hint = {
+          enable = true,
+        },
+      },
     },
   })
 end

@@ -4,6 +4,7 @@
     coreutils
     gnumake
     wget
+    rsync
     yq-go
     fzf
     unixtools.watch

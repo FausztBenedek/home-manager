@@ -30,11 +30,13 @@
         settings.font.normal.family = "JetBrainsMono Nerd Font";
         settings.font.size = 14;
         settings.window.decorations = "Buttonless";
+        settings.window.opacity = 0.8;
+        settings.window.blur = true;
         settings.colors = {
           # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml
           # Default colors
           primary = {
-            background = "#ccd4e1";
+            background = "#CCD4E1";
             foreground = "#4c4f69";
 
             dim_foreground = "#5c5f79";

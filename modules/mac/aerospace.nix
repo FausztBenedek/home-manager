@@ -37,10 +37,10 @@
             | xargs aerospace focus --window-id
       '')
       (pkgs.writeShellScriptBin "paint-borders-aerospace-window-manager-mode" ''
-        borders active_color=0xFFE52020 inactive_color=0xFFFFA725 width=5.0 &
+        borders active_color=0xFF5F9EA0 inactive_color=0xFFE3B95D width=5.0 &
       '')
       (pkgs.writeShellScriptBin "paint-borders-aerospace-main-mode" ''
-        borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+        borders active_color=0xFF5A73C4 inactive_color=0xFFCCD4E1 width=5.0 &
       '')
     ];
     home.file = {

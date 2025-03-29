@@ -97,7 +97,7 @@
         # Workaround for zsh-fzf-history-search plugin, because the default keymap was only available for emacs mode
         bindkey -M emacs '^R' fzf_history_search
         bindkey -M vicmd '^R' fzf_history_search
-        bindkey -M viins '^R' fzf_
+        bindkey -M viins '^R' fzf_history_search
 
         # Edit line in vim with ctrl-e:
         bindkey -M emacs '^e' edit-command-line

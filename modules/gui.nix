@@ -34,7 +34,7 @@
           # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml
           # Default colors
           primary = {
-            background = "#fcfdfd";
+            background = "#ccd4e1";
             foreground = "#4c4f69";
 
             dim_foreground = "#5c5f79";
@@ -48,12 +48,12 @@
           # Normal colors
           normal = {
             black = "#0c0f29";
-            red = "#D14D41";
-            green = "#879A39";
-            yellow = "#D0A215";
-            blue = "#4385BE";
+            red = "#D14B5A";
+            green = "#5F9EA0";
+            yellow = "#E3B95D";
+            blue = "#5A73C4";
             magenta = "#CE5D97";
-            cyan = "#24837B";
+            cyan = "#5f8b89";
             white = "#FFFCF0";
           };
           # My old color config

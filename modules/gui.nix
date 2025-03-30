@@ -23,14 +23,14 @@
     };
 
     programs = {
-      alacritty = lib.mkIf config.option.mac.enable {
+      alacritty = {
         # Alacritty only worked on mac so far, TODO Make it work on linux
         enable = true;
         #settings.font.normal.family = "ZedMono Nerd Font Mono"; # My previous fond
         settings.font.normal.family = "JetBrainsMono Nerd Font";
         settings.font.size = 14;
         settings.window.decorations = "Buttonless";
-        settings.window.opacity = 0.8;
+        settings.window.opacity = 0.85;
         settings.window.blur = true;
         settings.colors = {
           # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml
@@ -52,7 +52,9 @@
             black = "#0c0f29";
             red = "#D14B5A";
             green = "#5F9EA0";
-            yellow = "#E3B95D";
+            #yellow = "#C1923E";
+            yellow = "#B8860B";
+            #yellow = "#D18B3D";
             blue = "#5A73C4";
             magenta = "#CE5D97";
             cyan = "#5f8b89";

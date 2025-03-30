@@ -7,6 +7,7 @@ vim.api.nvim_set_keymap("n", "<C-n>", ":<c-u>tabn<cr>", { noremap = true, silent
 vim.api.nvim_set_keymap("n", "<C-p>", ":<c-u>tabp<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "ú", "]", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "ő", "[", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "-", "/", { noremap = false, silent = true })
 
 vim.api.nvim_set_keymap("n", "<leader>sphu", ":<c-u>set spell spelllang=hu<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>spen", ":<c-u>set spell spelllang=en<CR>", { noremap = true, silent = true })

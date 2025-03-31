@@ -33,79 +33,62 @@
         settings.window.opacity = 0.85;
         settings.window.blur = true;
         settings.colors = {
-          # Source https://github.com/kepano/flexoki/blob/main/alacritty/flexoki-dark.yaml
-          # Default colors
-          primary = {
-            background = "#CCD4E1";
-            foreground = "#4c4f69";
+          primary =
+            {
+              background = "0x282726";
+              foreground = "0xFFFCF0";
 
-            dim_foreground = "#5c5f79";
-            bright_foreground = "#1f2020";
-          };
+              dim_foreground = "0xFFFCF0";
+              bright_foreground = "0xFFFCF0";
+              dim_background = "0x1C1B1A";
+              bright_background = "0x1C1B1A";
+            };
+
           # Cursor colors
-          cursor = {
-            text = "#4c4f69";
-            cursor = "#CE5D97";
-          };
-          # Normal colors
-          normal = {
-            black = "#0c0f29";
-            red = "#D14B5A";
-            green = "#5F9EA0";
-            yellow = "#8B8000";
-            blue = "#5A73C4";
-            magenta = "#CE5D97";
-            cyan = "#5f8b89";
-            white = "#FFFCF0";
-          };
-          # My old color config
-          #primary = {
-          #  background = "#282726";
-          #  foreground = "#FFFCF0";
+          cursor =
+            {
+              text = "0xFFFCF0";
+              cursor = "0xFFFCF0";
+            };
 
-          #  dim_foreground = "#FFFCF0";
-          #  bright_foreground = "#FFFCF0";
-          #};
-          ## Cursor colors
-          #cursor = {
-          #  text = "#0F0C00";
-          #  cursor = "#A02F6F";
-          #};
-          ## Normal colors
-          #normal = {
-          #  black = "#100F0F";
-          #  red = "#AF3029";
-          #  green = "#66800B";
-          #  yellow = "#AD8301";
-          #  blue = "#205EA6";
-          #  magenta = "#A02F6F";
-          #  cyan = "#24837B";
-          #  white = "#FFFCF0";
-          #};
+          # Normal colors
+          normal =
+            {
+              black = "0x100F0F";
+              red = "0xAF3029";
+              green = "0x66800B";
+              yellow = "0xAD8301";
+              blue = "0x205EA6";
+              magenta = "0xA02F6F";
+              cyan = "0x24837B";
+              white = "0xFFFCF0";
+            };
 
           # Bright colors
-          bright = {
-            black = "#606060";
-            red = "#D14D41";
-            green = "#879A39";
-            yellow = "#D0A215";
-            blue = "#4385BE";
-            magenta = "#CE5D97";
-            cyan = "#3AA99F";
-            white = "#FFFCF0";
-          };
+          bright =
+            {
+              black = "0x100F0F";
+              red = "0xD14D41";
+              green = "0x879A39";
+              yellow = "0xD0A215";
+              blue = "0x4385BE";
+              magenta = "0xCE5D97";
+              cyan = "0x3AA99F";
+              white = "0xFFFCF0";
+            };
 
           # Dim colors
-          dim = {
-            black = "#100F0F";
-            red = "#AF3029";
-            green = "#66800B";
-            yellow = "#AD8301";
-            blue = "#205EA6";
-            magenta = "#A02F6F";
-            cyan = "#24837B";
-            white = "#FFFCF0";
-          };
+          dim =
+            {
+              black = "0x100F0F";
+              red = "0xAF3029";
+              green = "0x66800B";
+              yellow = "0xAD8301";
+              blue = "0x205EA6";
+              magenta = "0xA02F6F";
+              cyan = "0x24837B";
+              white = "0xFFFCF0";
+            };
         };
       };
     };

@@ -6,36 +6,38 @@ return {
     local intellijIconBackgroundOnHover = "#a7acb9"
     local intellijFileExplorerFilenameTextColor = "#1f2020"
     require("catppuccin").setup({
-      flavour = "latte", -- latte, frappe, macchiato, mocha
+      flavour = "frappe", -- latte, frappe, macchiato, mocha
       transparent_background = true,
       color_overrides = {
-        latte = {
-          rosewater = "#E85A72",
-          flamingo = "#E85A72",
-          pink = "#B84C85",
-          mauve = "#8B4D8B",
-          red = "#B53E4D",
-          maroon = "#9A4F4F",
-          peach = "#C76E00",
-          yellow = "#8B8000",
-          green = "#4D7876",
-          teal = "#4B878F",
-          sky = "#6FA9CF",
-          sapphire = "#0D469A",
-          blue = "#4A64A8", -- Filenames in nvim-tree
-          lavender = "#5E6CD5",
-          text = "#3C3F57",
-          subtext1 = "#4C5068",
-          subtext0 = "#5A5E73",
-          overlay2 = "#686C80",
-          overlay1 = "#767A8D", -- Adjusted to match general visibility
-          overlay0 = "#898EA0",
-          surface2 = "#979CAF",
-          surface1 = "#A5ABBC", -- Numbers at the start of the line
-          surface0 = "#B6BCCB", -- Background for autocomplete, and telescope match highlight
-          base = "#B6BCCB",
-          mantle = "#C5CCDA", -- nvim-tree background, statusline at the bottom
-          crust = "#B8BEC9",
+        frappe = {
+          rosewater = "#E5C6AA",
+          flamingo = "#E08C82",
+          pink = "#D35D8C",
+          mauve = "#A02F6F",
+          red = "#AF3029",
+          maroon = "#87372B",
+          peach = "#C46735",
+          yellow = "#AD8301",
+          green = "#66800B",
+          teal = "#24837B",
+          sky = "#3C7899",
+          sapphire = "#205EA6",
+          blue = "#6C8CD5", -- Filenames in nvim-tree
+          lavender = "#CEC5E4",
+
+          text = "#FFFCF0",
+          subtext1 = "#E4E0D4",
+          subtext0 = "#CBC6BA",
+          overlay2 = "#B2ADA1",
+          overlay1 = "#999489", -- Adjusted to match general visibility
+          overlay0 = "#807C71",
+          surface2 = "#6A6761",
+          surface1 = "#54514D", -- Numbers at the start of the line
+          surface0 = "#3E3B38",
+
+          base = "#282726",
+          mantle = "#1F1E1D", -- nvim-tree background, statusline at the bottom
+          crust = "#161514",
         },
       },
     })

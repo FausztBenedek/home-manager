@@ -14,7 +14,7 @@ end
 
 return function(config)
   local node_version = "v20.11.0"
-  local vue_path = os.getenv("NVM_DIR") .. "/versions/node/" .. node_version .. "/lib/node_modules/@vue"
+  local vue_path = os.getenv("NODE_DEPENDENCIES_INSTALLED_BY_NIX") .. "/lib/node_modules/@vue/"
   local vue_typescriptpath = vue_path .. "/typescript-plugin"
   local vue_language_server_path = vue_path .. "/language-server"
   if not isdir(vue_typescriptpath) or not isdir(vue_language_server_path) then

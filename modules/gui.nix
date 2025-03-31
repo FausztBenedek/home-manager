@@ -40,8 +40,8 @@
 
               dim_foreground = "0xFFFCF0";
               bright_foreground = "0xFFFCF0";
-              dim_background = "0x1C1B1A";
-              bright_background = "0x1C1B1A";
+              # dim_background = "0x1C1B1A"; Reported as unused key
+              # bright_background = "0x1C1B1A"; Reported as unused key
             };
 
           # Cursor colors

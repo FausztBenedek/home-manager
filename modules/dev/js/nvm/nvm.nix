@@ -17,7 +17,6 @@
             nvm install v20.11.0
             npm install -g @vue/typescript-plugin
             npm install -g @vue/language-server
-            npm install -g prettier
           ''
         ] ++ config.additionalNvmCommands;
       };

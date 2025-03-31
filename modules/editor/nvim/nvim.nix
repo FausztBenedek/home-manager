@@ -32,6 +32,7 @@
       shfmt
       stylua
       taplo # TOML formatter
+      nodePackages.prettier
 
       #Language servers
       pyright # python

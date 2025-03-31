@@ -8,6 +8,18 @@ return {
     require("catppuccin").setup({
       flavour = "frappe", -- latte, frappe, macchiato, mocha
       transparent_background = true,
+      highlight_overrides = {
+        all = function(colors)
+          -- Command to play around with it
+          -- highlight StatusLine guifg=#FFFCF0 guibg=#6C8CD5
+          -- highlight StatusLineNC guifg=#FFFCF0 guibg=#6A6761
+
+          return {
+            StatusLine = { fg = "#FFFCF0", bg = "#6C8CD5" },
+            StatusLineNC = { fg = "#FFFCF0", bg = "#6A6761" },
+          }
+        end,
+      },
       color_overrides = {
         frappe = {
           rosewater = "#E5C6AA",

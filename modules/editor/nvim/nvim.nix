@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  nodeDependencies = (pkgs.callPackage ./node-packages/default.nix { }).nodeDependencies;
+in
 {
   options = {
     option.nvim.config-location = lib.mkOption {
@@ -16,6 +19,9 @@
     programs.neovim.enable = true;
     home.file = {
       ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;
+    };
+    home.sessionVariables = {
+      NODE_DEPENDENCIES_INSTALLED_BY_NIX = nodeDependencies;
     };
 
     home.packages = with pkgs; [
@@ -44,6 +50,9 @@
       nodePackages.typescript-language-server
       terraform-ls
       vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
+
+      # For typescript-language-server
+      (pkgs.callPackage ./node-packages/default.nix { }).nodeDependencies
 
       (pkgs.writeShellScriptBin "find-files-in-nvim" ''
         find ''${1:-'.'} \( -type d -name .idea -prune \) -o \

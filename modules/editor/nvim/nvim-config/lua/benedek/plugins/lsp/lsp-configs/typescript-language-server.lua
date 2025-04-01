@@ -17,12 +17,6 @@ return function(config)
   local vue_path = os.getenv("NODE_DEPENDENCIES_INSTALLED_BY_NIX") .. "/lib/node_modules/@vue/"
   local vue_typescriptpath = vue_path .. "/typescript-plugin"
   local vue_language_server_path = vue_path .. "/language-server"
-  if not isdir(vue_typescriptpath) or not isdir(vue_language_server_path) then
-    print(
-      "ERROR Vue LSP will not work, check if you installed @vue/typescript-plugin and @vue/language-server globally with node "
-        .. node_version
-    )
-  end
   require("lspconfig").ts_ls.setup({
     capabilities = config.capabilities,
     init_options = {

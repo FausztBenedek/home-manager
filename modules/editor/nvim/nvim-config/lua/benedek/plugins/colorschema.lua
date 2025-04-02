@@ -11,12 +11,20 @@ return {
       highlight_overrides = {
         all = function(colors)
           -- Command to play around with it
-          -- highlight StatusLine guifg=#FFFCF0 guibg=#6C8CD5
-          -- highlight StatusLineNC guifg=#FFFCF0 guibg=#6A6761
 
           return {
+            -- highlight StatusLine guifg=#FFFCF0 guibg=#6C8CD5
             StatusLine = { fg = "#FFFCF0", bg = "#6C8CD5" },
+            -- highlight StatusLineNC guifg=#FFFCF0 guibg=#6A6761
             StatusLineNC = { fg = "#FFFCF0", bg = "#6A6761" },
+            -- highlight DiffAdd    guibg=#4D6008
+            DiffAdd = { bg = "#4D6008" },
+            -- highlight DiffChange guibg=#2F4975
+            DiffChange = { bg = "#2F4975" },
+            -- highlight DiffDelete guibg=#5A1814
+            DiffDelete = { bg = "#5A1814" },
+            -- highlight DiffText guibg=#4A66A0
+            DiffText = { bg = "#4A66A0" },
           }
         end,
       },

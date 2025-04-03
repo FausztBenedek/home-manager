@@ -3,7 +3,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "saghen/blink.cmp",
+    -- Java related stuff
+    "mfussenegger/nvim-jdtls", -- Configuration in nvim-config/ftplugin/java.lua
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()

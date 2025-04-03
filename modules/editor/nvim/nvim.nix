@@ -19,6 +19,8 @@ in
     programs.neovim.enable = true;
     home.file = {
       ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;
+      # Used by java.lua, when jdtls starts. Details in java.lua.
+      ".local/share/nvim/jdtls-workspace/config_mac/config.ini".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.jdt-language-server}/share/java/jdtls/config_mac/config.ini";
     };
     home.sessionVariables = {
       NODE_DEPENDENCIES_INSTALLED_BY_NIX = nodeDependencies;
@@ -70,7 +72,8 @@ in
     ];
     home.sessionVariables = {
       EDITOR = "nvim";
-      JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar"; # Needed for jdt-language-server
+      _NVIM_HELPER_LOCATION_OF_JAVA_JDTLS = pkgs.jdt-language-server;
+      _NVIM_HELPER_LOCATION_OF_LOMBOK = "${pkgs.lombok}/share/java/lombok.jar"; # Needed for jdt-language-server
     };
   };
 }

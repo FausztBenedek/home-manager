@@ -9,6 +9,7 @@
     fzf
     unixtools.watch
     jq # to apply JSON path on stdout
+    bat
     hwatch
     findutils
     tealdeer
@@ -22,9 +23,12 @@
 
   ];
   home.shellAliases = {
-    history = "print -z $(sort ~/.zsh_history | sort | uniq | fzf)";
+    cat = "${pkgs.bat}/bin/bat";
   };
   programs = {
+    bat = {
+      enable = true;
+    };
     eza = {
       enable = true;
       icons = "auto";

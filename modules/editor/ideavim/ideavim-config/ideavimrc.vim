@@ -50,8 +50,8 @@ nmap <C-i> <Action>(Forward)
 nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 
 " Switc between tabs
-nmap <S-h> <Action>(PreviousTab)
-nmap <S-l> <Action>(NextTab)
+nmap <C-p> <Action>(PreviousTab)
+nmap <C-n> <Action>(NextTab)
 nmap <C-w><C-c> <Action>(CloseAllEditorsButActive)
 " Select upward
 map <A-k> <Action>(EditorSelectWord)

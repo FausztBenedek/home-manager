@@ -41,6 +41,7 @@ in
       stylua
       taplo # TOML formatter
       nodePackages.prettier
+      google-java-format
 
       #Language servers
       pyright # python

@@ -44,6 +44,9 @@ return {
         python = {
           require("formatter.filetypes.python").autopep8,
         },
+        java = {
+          require("formatter.filetypes.java").google_java_format,
+        },
         toml = { -- align_entries was not an available option, so had to do it manually
           function()
             return {

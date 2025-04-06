@@ -1,5 +1,9 @@
 vim.g.mapleader = " "
 
+-- Temporarily disable, so that I get used to CAPS_LOCK
+vim.api.nvim_set_keymap("i", "<C-c>", "", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<C-c>", "", { noremap = true, silent = true })
+
 -- Navigation commands
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-c>", ":noh<CR>", { noremap = true, silent = true })

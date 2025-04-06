@@ -35,59 +35,59 @@
         settings.colors = {
           primary =
             {
-              background = "0x282726";
-              foreground = "0xFFFCF0";
+              background = "#282726";
+              foreground = "#FFFCF0";
 
-              dim_foreground = "0xFFFCF0";
-              bright_foreground = "0xFFFCF0";
-              # dim_background = "0x1C1B1A"; Reported as unused key
-              # bright_background = "0x1C1B1A"; Reported as unused key
+              dim_foreground = "#FFFCF0";
+              bright_foreground = "#FFFCF0";
+              # dim_background = "#1C1B1A"; Reported as unused key
+              # bright_background = "#1C1B1A"; Reported as unused key
             };
 
           # Cursor colors
           cursor =
             {
-              text = "0xFFFCF0";
-              cursor = "0xFFFCF0";
+              text = "#FFFCF0";
+              cursor = "#FFFCF0";
             };
 
           # Normal colors
           normal =
             {
-              black = "0x100F0F";
-              red = "0xAF3029";
-              green = "0x66800B";
-              yellow = "0xAD8301";
-              blue = "0x205EA6";
-              magenta = "0xA02F6F";
-              cyan = "0x24837B";
-              white = "0xFFFCF0";
+              black = "#100F0F";
+              red = "#AF3029";
+              green = "#66800B";
+              yellow = "#AD8301";
+              blue = "#205EA6";
+              magenta = "#A02F6F";
+              cyan = "#24837B";
+              white = "#FFFCF0";
             };
 
           # Bright colors
           bright =
             {
-              black = "0x100F0F";
-              red = "0xD14D41";
-              green = "0x879A39";
-              yellow = "0xD0A215";
-              blue = "0x4385BE";
-              magenta = "0xCE5D97";
-              cyan = "0x3AA99F";
-              white = "0xFFFCF0";
+              black = "#100F0F";
+              red = "#D14D41";
+              green = "#879A39";
+              yellow = "#D0A215";
+              blue = "#4385BE";
+              magenta = "#CE5D97";
+              cyan = "#3AA99F";
+              white = "#FFFCF0";
             };
 
           # Dim colors
           dim =
             {
-              black = "0x100F0F";
-              red = "0xAF3029";
-              green = "0x66800B";
-              yellow = "0xAD8301";
-              blue = "0x205EA6";
-              magenta = "0xA02F6F";
-              cyan = "0x24837B";
-              white = "0xFFFCF0";
+              black = "#100F0F";
+              red = "#AF3029";
+              green = "#66800B";
+              yellow = "#AD8301";
+              blue = "#205EA6";
+              magenta = "#A02F6F";
+              cyan = "#24837B";
+              white = "#FFFCF0";
             };
         };
       };

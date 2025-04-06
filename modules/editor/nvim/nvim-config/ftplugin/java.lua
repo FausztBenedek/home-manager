@@ -34,7 +34,8 @@ local config = {
     "-data",
     workspace_dir,
   },
-  root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+  -- Root_dir originally contained { "build.gradle", "pom.xml" }, but it messed up navigation between subprojects
+  root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "settings.gradle", "settings.gradle.kts" }),
   capabilities = require("blink.cmp").get_lsp_capabilities(),
   settings = {
     java = {

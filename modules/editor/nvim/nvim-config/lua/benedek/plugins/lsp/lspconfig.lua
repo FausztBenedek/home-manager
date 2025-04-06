@@ -43,10 +43,10 @@ return {
         opts.desc = "Show LSP definitions"
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definitions
 
-        opts.desc = "Show LSP implementations"
+        opts.desc = "Show LSP incoming_calls in quickfixlist"
         vim.keymap.set("n", "gi", vim.lsp.buf.incoming_calls, opts) -- show lsp implementations
 
-        opts.desc = "Show LSP implementations"
+        opts.desc = "Show LSP incoming_calls with Telescope"
         vim.keymap.set("n", "gI", "<cmd>Telescope lsp_incoming_calls<cr>", opts) -- show lsp implementations
 
         opts.desc = "Show LSP type definitions"
@@ -83,6 +83,17 @@ return {
 
         opts.desc = "Code actions"
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+
+        opts.desc = "Remove test files and import from references quickfixlist"
+        vim.keymap.set("n", "<leader>cr", function()
+          vim.cmd("g/import /d")
+          vim.cmd("g/.spec.ts/d")
+          vim.cmd("g/.spec.tsx/d")
+        end, {
+          desc = "Remove test files and import from references quickfixlist",
+          noremap = true,
+          silent = true,
+        })
       end,
     })
 

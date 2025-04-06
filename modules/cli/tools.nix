@@ -9,6 +9,7 @@
     fzf
     unixtools.watch
     jq # to apply JSON path on stdout
+    entr
     bat
     hwatch
     findutils

@@ -89,6 +89,8 @@ return {
           vim.cmd("g/import /d")
           vim.cmd("g/.spec.ts/d")
           vim.cmd("g/.spec.tsx/d")
+          vim.cmd("g/UnitTest.java/d")
+          vim.cmd("g/IntegrationTest.java/d")
         end, {
           desc = "Remove test files and import from references quickfixlist",
           noremap = true,

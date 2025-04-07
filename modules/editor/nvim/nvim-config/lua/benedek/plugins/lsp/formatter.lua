@@ -18,6 +18,15 @@ return {
         json = {
           require("formatter.filetypes.json").fixjson,
         },
+        markdown = {
+          function()
+            return {
+              exe = "mdformat",
+              args = { "--wrap 70", "-" },
+              stdin = true,
+            }
+          end,
+        },
         xml = {
           require("formatter.filetypes.xml").xmllint,
         },

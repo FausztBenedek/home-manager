@@ -42,6 +42,7 @@ in
       taplo # TOML formatter
       nodePackages.prettier
       google-java-format
+      mdformat
 
       #Language servers
       pyright # python

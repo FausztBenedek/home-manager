@@ -10,6 +10,7 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "e10626f7fcd51ccd56d7ffc00883ba7e0aa28f78" },
   "jsonpath.nvim": { "branch": "main", "commit": "2d889eb9c39893e030e902b854122a1615c042ea" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "lualine.nvim": { "branch": "master", "commit": "834a5817f7e2be22a7062620032d49c600c35fab" },
   "nvim-autopairs": { "branch": "master", "commit": "3d02855468f94bf435db41b661b58ec4f48a06b7" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-dap": { "branch": "master", "commit": "7aade9e99bef5f0735cf966e715b3ce45515d786" },

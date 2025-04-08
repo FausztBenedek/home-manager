@@ -1,4 +1,5 @@
 return {
+  require("benedek.plugins.lsp.lsp-configs.astro"),
   require("benedek.plugins.lsp.lsp-configs.bash-language-server"),
   require("benedek.plugins.lsp.lsp-configs.cssls"),
   require("benedek.plugins.lsp.lsp-configs.html"),

@@ -53,6 +53,7 @@ in
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
       terraform-ls
+      astro-language-server
       vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
 
       # For typescript-language-server

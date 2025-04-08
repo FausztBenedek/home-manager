@@ -9,6 +9,7 @@
   option.dev.js.enable = false;
   option.dev.python.enable = false;
   option.dev.java.enable = false;
+  option.dev.rust.enable = false;
   git = {
     name = "FausztBenedek";
     email = "fausztb@gmail.com";

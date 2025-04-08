@@ -4,5 +4,6 @@
     ./java
     ./js
     ./python
+    ./rust
   ];
 }

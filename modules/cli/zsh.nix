@@ -59,6 +59,7 @@
           src = pkgs.zsh-autosuggestions;
           file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
         }
+        # TODO https://github.com/softmoth/zsh-vim-mode
       ];
       oh-my-zsh = {
         enable = true;
@@ -88,7 +89,6 @@
         bindkey -M menuselect 'l' vi-forward-char
         bindkey -M menuselect 'j' vi-down-line-or-history
         bindkey -M menuselect '^n' vi-down-line-or-history
-        bindkey -v '^?' backward-delete-char
 
         for config in ~/.zshrc.d/*.zsh; do
           source $config

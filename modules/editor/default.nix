@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./nvim
     ./ideavim
+    ./nvim
+    ./vscode
   ];
 }

@@ -6,6 +6,7 @@
     ./dev
     ./editor
     ./gui.nix
+    ./linux
     ./mac
   ];
 }

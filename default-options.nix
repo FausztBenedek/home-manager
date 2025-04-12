@@ -14,5 +14,8 @@
     name = "FausztBenedek";
     email = "fausztb@gmail.com";
   };
-  #additionalNvmCommands = [];
+
+  # Linux related stuff
+  option.linux.compositor.hyprland = false;
+
 }

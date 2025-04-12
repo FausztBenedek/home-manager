@@ -42,6 +42,15 @@
             private-configs.kn
           ];
         };
+        "nixos-setup" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit self; }; # TODO Is this needed?
+          modules = [
+            ./modules
+            private-configs.nixos-setup
+          ];
+        };
+
       };
     };
 }

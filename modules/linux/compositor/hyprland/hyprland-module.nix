@@ -6,7 +6,7 @@
       type = lib.types.path;
       description = ''
         The location of the hyprland configuration. It defaults to copying the config to the store,
-        and symlinking there. If it is set, chainging the nvim config has immediate effect.
+        and symlinking there. If it is set, chainging the hyprland config has immediate effect.
         If it is left default, home-manager switch is needed beforehand.
       '';
       default = ./hyprland-config;

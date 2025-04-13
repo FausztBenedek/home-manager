@@ -42,6 +42,14 @@
             private-configs.kn
           ];
         };
+        "private" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit self; };
+          modules = [
+            ./modules
+            private-configs.private
+          ];
+        };
         "nixos-setup" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit self; }; # TODO Is this needed?

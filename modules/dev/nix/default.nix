@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./nix-module.nix
+  ];
+}

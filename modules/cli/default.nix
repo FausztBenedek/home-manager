@@ -6,8 +6,8 @@
     ./git
     ./tools
     ./ai
+    ./shell
 
     ./tools.nix
-    ./zsh.nix
   ];
 }

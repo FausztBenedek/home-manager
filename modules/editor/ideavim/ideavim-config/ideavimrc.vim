@@ -46,6 +46,9 @@ Plug 'tpope/vim-surround'
 
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
+nmap <C-z> <Action>(EditorChooseLookupItem)
+nmap úc <Action>(NextDiff)
+nmap őc <Action>(PreviousDiff)
 
 nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 
@@ -64,6 +67,7 @@ nmap <leader>wh <Action>(HideAllWindows)
 " Reorder tabs
 nnoremap <leader>tp :tabm-1 <CR>
 nnoremap <leader>tn :tabm+1 <CR>
+nnoremap <C-q> :q <CR>
 
 nmap <C-t> <Action>(ActivateTerminalToolWindow)
 nmap <C-e><C-f> <Action>(SelectInProjectView)

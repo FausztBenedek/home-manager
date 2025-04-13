@@ -17,6 +17,7 @@ in
   };
   config = {
     programs.neovim.enable = true;
+    # At first launch `nvim --headless "+Lazy! restore" "+Lazy! clean" +qa`
     home.file = {
       ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;
       # Used by java.lua, when jdtls starts. Details in java.lua.

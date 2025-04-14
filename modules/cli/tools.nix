@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     coreutils
+    gnused
     gnumake
     wget
     rsync

@@ -15,11 +15,22 @@
   };
   config =
     {
+      programs.git = {
+        enable = true;
+        userName = config.git.name;
+        userEmail = config.git.email;
+        delta = {
+          enable = true;
+          options = {
+            side-by-side = true;
+
+          };
+        };
+      };
       # Additionally:
       # - oh-my-zsh plugin added
       # - added to eza
-      home.packages = with pkgs; [
-        git
+      home.packages = [
         (pkgs.writeShellScriptBin "gcof" ''
           if [ -z $1 ] 
           then

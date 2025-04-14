@@ -43,6 +43,7 @@ return {
         "svelte",
         "vue",
         "prisma",
+        "astro",
         -- Neovim/vim related
         "lua",
         "vim",

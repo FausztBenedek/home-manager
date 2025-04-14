@@ -15,7 +15,7 @@
         and symlinking there. If it is set, chainging the alacritty config has immediate effect.
         If it is left default, home-manager switch is needed beforehand.
       '';
-      default = ./alacritty/alacritty.toml;
+      default = ./alacritty;
     };
 
   };
@@ -33,7 +33,7 @@
       webstorm = "open -a WebStorm .";
     };
     home.file = {
-      ".config/alacritty/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;
+      ".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink config.option.alacritty.config-location;
     };
 
     programs = {

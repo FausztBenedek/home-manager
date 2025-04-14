@@ -1,11 +1,10 @@
 { ... }:
 {
-
   imports = [
     ./cli
     ./dev
     ./editor
-    ./gui.nix
+    ./gui
     ./linux
     ./mac
   ];

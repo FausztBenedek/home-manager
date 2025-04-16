@@ -25,6 +25,8 @@ return {
             DiffDelete = { bg = "#5A1814" },
             -- highlight DiffText guibg=#4A66A0
             DiffText = { bg = "#4A66A0" },
+            -- highlight LineNr guifg=#8CACD5
+            LineNr = { fg = "#8CACD5" },
           }
         end,
       },

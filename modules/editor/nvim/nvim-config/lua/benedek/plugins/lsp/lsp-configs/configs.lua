@@ -7,6 +7,7 @@ return {
   require("benedek.plugins.lsp.lsp-configs.lua-language-server"),
   require("benedek.plugins.lsp.lsp-configs.nixd"),
   require("benedek.plugins.lsp.lsp-configs.pyright"),
+  require("benedek.plugins.lsp.lsp-configs.tailwind"),
   require("benedek.plugins.lsp.lsp-configs.terraformls"),
   require("benedek.plugins.lsp.lsp-configs.typescript-language-server"),
 }

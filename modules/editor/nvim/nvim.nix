@@ -56,6 +56,7 @@ in
       terraform-ls
       astro-language-server
       vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
+      tailwindcss-language-server
 
       # For typescript-language-server
       (pkgs.callPackage ./node-packages/default.nix { }).nodeDependencies

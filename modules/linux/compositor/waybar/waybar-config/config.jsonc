@@ -1,103 +1,133 @@
 {
-        "layer": "top",
-        "position": "top",
-        "reload_style_on_change": true,
-        "modules-left": ["tray"],
-        "modules-center": ["clock","hyprland/workspaces"],
-        "modules-right": ["group/expand","bluetooth","network","battery"],
-
-
-        "hyprland/workspaces": {
-            "format": "{icon}  {name}",
-            "format-icons": {
-                "active": "",
-                "default": "",
-                "empty": "",
-            },
-            "sort-by-coordinates": true
+    // For developing waybar:
+    // find -L ~/.config/waybar | entr -r waybar
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": [
+        "tray",
+        "pulseaudio"
+    ],
+    "modules-center": [
+        "clock",
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/expand",
+        "bluetooth",
+        "network",
+        "battery"
+    ],
+    "pulseaudio": {
+        "format":	"{icon}  {volume}%",
+        "format-muted": "  Mute",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "?",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["","", ""]
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}  {name}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
         },
-        "clock": {
-            "format": "{:%I:%M:%S %p} ",
-            "interval": 1,   
-            "tooltip-format": "<tt>{calendar}</tt>",
-            "calendar": {
-                "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
-                }
-            },
-            "actions": {
-                "on-click-right": "shift_down",
-                "on-click": "shift_up"
+        "sort-by-coordinates": true
+    },
+    "clock": {
+        "format": "{:%I:%M:%S %p} ",
+        "interval": 1,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#fAfBfC'><b>{}</b></span>"
             }
         },
-        "network": {
-            "format-wifi": "",
-            "format-ethernet":"",
-            "format-disconnected": "",
-            "tooltip-format-disconnected": "Error",
-            "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-            "tooltip-format-ethernet": "{ifname} 🖧 ",
-            "on-click": "nm-connection-editor"
+        "actions": {
+            "on-click-right": "shift_down",
+            "on-click": "shift_up"
+        }
+    },
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format-disconnected": "Error",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "on-click": "nm-connection-editor"
+    },
+    "bluetooth": {
+        "format-on": "󰂯",
+        "format-off": "BT-off",
+        "format-disabled": "󰂲",
+        "format-connected-battery": "{device_battery_percentage}% 󰂯",
+        "format-alt": "{device_alias} 󰂯",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+        "on-click-right": "blueman-manager"
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
         },
-        "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "BT-off",
-            "format-disabled": "󰂲",
-            "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
-        }, 
-        "battery": {
-            "interval":30,
-            "states": {
-                "good": 95,
-                "warning": 30,
-                "critical": 20
-            },
-            "format": "{capacity}% {icon}",
-            "format-charging": "{capacity}% 󰂄",
-            "format-plugged": "{capacity}% 󰂄 ",
-            "format-alt": "{time} {icon}",
-            "format-icons": [
-                "󰁻",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}% ",
+        "format-alt": "{icon} {time}",
+        "format-icons": [
+            "󰁻",
             "󰁼",
             "󰁾",
             "󰂀",
             "󰂂",
             "󰁹"
-            ],
+        ]
+    },
+    "custom/expand": {
+        "format": "",
+        "tooltip": false
+    },
+    "group/expand": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": true,
+            "click-to-reveal": true
         },
-        "custom/expand": {
-            "format": "",
-            "tooltip": false
-        },
-        "group/expand": {
-            "orientation": "horizontal",
-            "drawer": {
-                "transition-duration": 600,
-                "transition-to-left": true,
-                "click-to-reveal": true
-            },
-            "modules": ["custom/expand","cpu","memory","temperature","custom/endpoint"],
-        },
-        "cpu": {
-            "format": "󰻠",
-            "tooltip": true
-        },
-        "memory": {
-            "format": ""
-        },
-        "temperature": {
-            "critical-threshold": 80,
-            "format": "",
-        },
-        "tray": {
-            "icon-size": 14,
-            "spacing": 10
-        },
-} 
-
+        "modules": [
+            "custom/expand",
+            "cpu",
+            "memory",
+            "temperature",
+            "custom/endpoint"
+        ]
+    },
+    "cpu": {
+        "format": "󰻠",
+        "tooltip": true
+    },
+    "memory": {
+        "format": ""
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": ""
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    }
+}

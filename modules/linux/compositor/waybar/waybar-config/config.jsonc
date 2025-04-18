@@ -6,7 +6,8 @@
     "reload_style_on_change": true,
     "modules-left": [
         "tray",
-        "pulseaudio"
+        "pulseaudio",
+        "backlight"
     ],
     "modules-center": [
         "clock",
@@ -19,8 +20,8 @@
         "battery"
     ],
     "pulseaudio": {
-        "format":	"{icon}  {volume}%",
-        "format-muted": "  Mute",
+        "format":	" {icon}  {volume}% ",
+        "format-muted": "   Mute ",
         "format-icons": {
             "headphone": "",
             "hands-free": "?",
@@ -31,6 +32,10 @@
             "car": "",
             "default": ["","", ""]
         }
+    },
+    "backlight": {
+        "format": " {icon}  {percent}% ",
+        "format-icons": [ "󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨" ]
     },
     "hyprland/workspaces": {
         "format": "{icon}  {name}",

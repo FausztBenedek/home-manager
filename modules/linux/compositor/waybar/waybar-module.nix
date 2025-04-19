@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   options = {
-    option.linux.compositor.waybar = lib.mkEnableOption "Use hyprland as compositor";
+    option.linux.compositor.waybar = lib.mkEnableOption "Use waybar for bar";
     option.linux.compositor.waybar-location = lib.mkOption {
       type = lib.types.path;
       description = ''

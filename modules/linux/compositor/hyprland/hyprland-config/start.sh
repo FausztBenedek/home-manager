@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# Lock screen
-hyprlock &
+# Lock screen Disable, because I boot into Hyprland directly (for now)
+# hyprlock &
 
 # Wallpaper
 hyprpaper &

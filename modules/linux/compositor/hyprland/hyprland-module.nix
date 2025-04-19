@@ -17,6 +17,13 @@
     home.file = {
       ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink config.option.linux.compositor.hyprland-location;
     };
+    gtk = {
+      enable = true;
+      theme.name = "Numix";
+      # theme.package = pkgs.numix-gtk-theme;
+      iconTheme.name = "Numix-Circle";
+      # iconTheme.package = pkgs.numix-icon-theme-circle;
+    };
     home.pointerCursor =
       let
         getFrom = url: hash: name: {

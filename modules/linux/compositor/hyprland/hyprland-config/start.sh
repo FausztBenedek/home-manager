@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
+
+# Lock screen
+hyprlock &
+
 # Wallpaper
 hyprpaper &
 

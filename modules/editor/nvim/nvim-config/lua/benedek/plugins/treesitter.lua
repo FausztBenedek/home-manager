@@ -54,6 +54,7 @@ return {
         "python",
         "nix",
         "c",
+        "query", -- treesitter query
       },
       incremental_selection = {
         enable = true,

@@ -13,6 +13,10 @@ return {
     local opts = {
       adapters = {
         require("neotest-vitest"),
+        ["neotest-java"] = {
+          junit_jar = nil, -- default: stdpath("data") .. /nvim/neotest-java/junit-platform-console-standalone-[version].jar
+          incremental_build = true,
+        },
       },
       status = { virtual_text = true },
       output = { open_on_run = true },

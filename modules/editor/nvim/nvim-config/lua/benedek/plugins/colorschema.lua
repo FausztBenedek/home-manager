@@ -3,8 +3,6 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    local intellijIconBackgroundOnHover = "#a7acb9"
-    local intellijFileExplorerFilenameTextColor = "#1f2020"
     require("catppuccin").setup({
       flavour = "frappe", -- latte, frappe, macchiato, mocha
       transparent_background = true,
@@ -27,6 +25,17 @@ return {
             DiffText = { bg = "#4A66A0" },
             -- highlight LineNr guifg=#8CACD5
             LineNr = { fg = "#8CACD5" },
+            -- vim.api.nvim_set_hl(0, "@keyword", { fg = "#C46735" })
+            -- highlight Keyword guifg=#C46735
+            Keyword = { fg = "#C46735" },
+            ["@keyword"] = { fg = "#C46735" },
+            ["@keyword.debug"] = { fg = "#C46735" },
+            ["@keyword.import"] = { fg = "#C46735" },
+            ["@keyword.repeat"] = { fg = "#C46735" },
+            ["@keyword.return"] = { fg = "#C46735" },
+            ["@keyword.function"] = { fg = "#C46735" },
+            ["@keyword.exception"] = { fg = "#C46735" },
+            ["@keyword.conditional"] = { fg = "#C46735" },
           }
         end,
       },

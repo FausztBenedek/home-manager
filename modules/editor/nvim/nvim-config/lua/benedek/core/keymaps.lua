@@ -17,6 +17,10 @@ vim.api.nvim_set_keymap("n", "<C-w><C-h>", "<C-w>H", { noremap = true, silent = 
 vim.api.nvim_set_keymap("n", "<C-w><C-j>", "<C-w>J", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-w><C-k>", "<C-w>K", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-w><C-l>", "<C-w>L", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-h>", "2<C-w><", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-j>", "2<C-w>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-k>", "2<C-w>-", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-l>", "2<C-w>>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<leader>sphu", ":<c-u>set spell spelllang=hu<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>spen", ":<c-u>set spell spelllang=en<CR>", { noremap = true, silent = true })

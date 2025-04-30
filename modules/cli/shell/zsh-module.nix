@@ -72,6 +72,12 @@
             src = pkgs.zsh-autosuggestions;
             file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
           }
+          {
+            # I missed the surruond feature in the built in vi mode
+            name = "zsh-vi-mode";
+            src = pkgs.zsh-vi-mode;
+            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+          }
           # TODO https://github.com/softmoth/zsh-vim-mode
         ];
         oh-my-zsh = {
@@ -92,8 +98,6 @@
           bindkey -M viins ';3D' backward-word
           bindkey -M vicmd ';3D' backward-word
 
-          # vi mode
-          bindkey -v
           export KEYTIMEOUT=1
           # Use vim keys in tab complete menu:
           bindkey -M menuselect 'h' vi-backward-char
@@ -102,6 +106,15 @@
           bindkey -M menuselect 'l' vi-forward-char
           bindkey -M menuselect 'j' vi-down-line-or-history
           bindkey -M menuselect '^n' vi-down-line-or-history
+
+          # vi mode: Use the system clipboard when yanking commands:
+          # Whatch out for https://github.com/jeffreytse/zsh-vi-mode/issues/19
+          function zvm_vi_yank() {
+            zvm_yank
+            echo ''${CUTBUFFER} | pbcopy
+            zvm_exit_visual_mode
+          }
+
 
           for config in ~/.zshrc.d/*.zsh; do
             source $config
@@ -112,10 +125,10 @@
           bindkey -M vicmd '^R' fzf_history_search
           bindkey -M viins '^R' fzf_history_search
 
-          # Edit line in vim with ctrl-e:
-          bindkey -M emacs '^e' edit-command-line
-          bindkey -M vicmd '^e' edit-command-line
-          bindkey -M viins '^e' edit-command-line
+          # Edit line in vim with ctrl-x then ctrl-e:
+          bindkey -M emacs '^x^e' edit-command-line
+          bindkey -M vicmd '^x^e' edit-command-line
+          bindkey -M viins '^x^e' edit-command-line
         '';
       };
     };

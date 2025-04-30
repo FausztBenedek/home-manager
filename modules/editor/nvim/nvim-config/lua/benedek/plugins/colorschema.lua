@@ -36,6 +36,8 @@ return {
             ["@keyword.function"] = { fg = "#C46735" },
             ["@keyword.exception"] = { fg = "#C46735" },
             ["@keyword.conditional"] = { fg = "#C46735" },
+
+            ["@tag"] = { fg = "#AD8301" },
           }
         end,
       },
@@ -44,7 +46,7 @@ return {
           rosewater = "#E5C6AA",
           flamingo = "#E08C82",
           pink = "#D35D8C",
-          mauve = "#A02F6F",
+          mauve = "#c00f73",
           red = "#C54A42",
           maroon = "#9F4A3F",
           peach = "#C46735",

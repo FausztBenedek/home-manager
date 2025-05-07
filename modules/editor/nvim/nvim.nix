@@ -46,7 +46,7 @@ in
       mdformat
 
       #Language servers
-      pyright # python
+      pyright # python
       jdt-language-server # For java, the eclipse language server
       lombok # For jdt-language-server's lombok support
       lua-language-server
@@ -55,22 +55,24 @@ in
       nodePackages.typescript-language-server
       terraform-ls
       astro-language-server
-      vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
+      vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
       tailwindcss-language-server
 
       # For typescript-language-server
       (pkgs.callPackage ./node-packages/default.nix { }).nodeDependencies
 
       (pkgs.writeShellScriptBin "find-files-in-nvim" ''
-        find ''${1:-'.'} \( -type d -name .idea -prune \) -o \
-        \( -type d -name target -prune \) -o \
-        \( -type d -name build -prune \) -o \
-        \( -type d -name node_modules -prune \) -o \
+        find ''${1:-'.'} \
         \( -type d -name .git -prune \) -o \
-        \( -type d -name localonly -prune \) -o \
-        \( -type d -name out -prune \) -o \
-        \( -type d -name dist -prune \) -o \
         \( -type d -name .gradle -prune \) -o \
+        \( -type d -name .idea -prune \) -o \
+        \( -type d -name bin -prune \) -o \
+        \( -type d -name build -prune \) -o \
+        \( -type d -name dist -prune \) -o \
+        \( -type d -name localonly -prune \) -o \
+        \( -type d -name node_modules -prune \) -o \
+        \( -type d -name out -prune \) -o \
+        \( -type d -name target -prune \) -o \
         \( -type f -name .factorypath -prune \) -o \
         -type f -print | while read -r line; do echo "{\"name\": \"''${line##*/}\", \"ref\": \"''$line\"}"; done
       '')

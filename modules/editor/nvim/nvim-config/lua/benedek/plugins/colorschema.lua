@@ -15,8 +15,8 @@ return {
             StatusLine = { fg = "#FFFCF0", bg = "#6C8CD5" },
             -- highlight StatusLineNC guifg=#FFFCF0 guibg=#6A6761
             StatusLineNC = { fg = "#FFFCF0", bg = "#6A6761" },
-            -- highlight DiffAdd    guibg=#4D6008
-            DiffAdd = { bg = "#4D6008" },
+            -- highlight DiffAdd    guibg=#2D5008
+            DiffAdd = { bg = "#2D5008" },
             -- highlight DiffChange guibg=#2F4975
             DiffChange = { bg = "#2F4975" },
             -- highlight DiffDelete guibg=#5A1814

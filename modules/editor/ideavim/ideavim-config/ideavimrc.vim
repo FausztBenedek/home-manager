@@ -89,3 +89,8 @@ nnoremap <c-w><c-u><c-j><c-j> ?{<cr>v?;\|{<cr>/.<cr>ohd%x<c-o>x| "Removes the if
 
 "Navigation-
 noremap <leader>gbd gg/{<cr>/@Autowired<cr>Nj| "Goto bean declarations
+imap <C-z> <Action>(EditorChooseLookupItem)
+
+"Running stuff
+nmap <leader>tt <Action>(RunClass)
+nmap <leader>tm <Action>(RunMenu)

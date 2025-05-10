@@ -6,6 +6,10 @@
     option.mac.aerospace.enable = lib.mkDefault true;
     option.mac.maccy.enable = lib.mkDefault true;
 
+    home.file = {
+      "notes".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Icloud\ notes";
+    };
+
     home.packages = with pkgs; [
       utm
       podman-desktop # The podman binary has to be set explicitly. It must be the nix-store one, but by selecting the symlink in `~/.nix-profile/`, it resolves to the nix store.

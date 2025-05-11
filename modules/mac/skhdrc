@@ -1,6 +1,6 @@
 
-:: default : paint-borders-aerospace-main-mode
-:: windowmanager @ : paint-borders-aerospace-window-manager-mode
+:: default : paint-borders-yabai-main-mode
+:: windowmanager @ : paint-borders-yabai-window-manager-mode
 
 ctrl - a ; windowmanager
 

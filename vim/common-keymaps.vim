@@ -21,7 +21,7 @@ inoremap <C-7><CR> {}<Left><CR><esc>O
 inoremap <C-8> ()<Left>
 inoremap <C-8><CR> ()<Left><CR><esc>O
 
-nnoremap <C-y> :<c-u>normal! <cr>| "For aerospace mapping conflict
+nnoremap <C-y> :<c-u>normal! <cr>| "For tiling window manager mapping conflict
 
 inoremap <C-.> <esc>mqA;<esc>`qa| "Add ; to the end of the line and go back
 nnoremap <C-.> mqA;<esc>`q| "Add ; to the end of the line and go back

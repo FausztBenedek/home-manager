@@ -3,7 +3,8 @@
     option.mac.enable = lib.mkEnableOption "Enables mac specific software";
   };
   config = lib.mkIf config.option.mac.enable {
-    option.mac.aerospace.enable = lib.mkDefault true;
+    option.mac.aerospace.enable = lib.mkDefault false;
+    option.mac.yabai.enable = lib.mkDefault true;
     option.mac.maccy.enable = lib.mkDefault true;
 
     home.file = {

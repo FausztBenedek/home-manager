@@ -26,22 +26,7 @@
   config = lib.mkIf config.option.mac.aerospace.enable {
     home.packages = with pkgs; [
       aerospace
-      jankyborders
       choose-gui
-      (pkgs.writeShellScriptBin "_aerospace_jump_to_window_after_fuzzy_search" ''
-        aerospace list-windows \
-            --all \
-            --format "%{app-name}%{right-padding}ǁ%{window-title}%{right-padding}ǁ%{window-id}%{right-padding}ǁ%{workspace}%{right-padding}ǁ%{monitor-name}%{right-padding}" \
-            | choose -w 95  \
-            | awk -F 'ǁ' '{print $3}'  \
-            | xargs aerospace focus --window-id
-      '')
-      (pkgs.writeShellScriptBin "paint-borders-aerospace-window-manager-mode" ''
-        borders active_color=0xFF5F9EA0 inactive_color=0xFFE3B95D width=5.0 &
-      '')
-      (pkgs.writeShellScriptBin "paint-borders-aerospace-main-mode" ''
-        borders active_color=0xFF5A73C4 inactive_color=0xFFCCD4E1 width=5.0 &
-      '')
     ];
     home.file = {
       ".config/aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.HM}/modules/mac/aerospace.toml";

@@ -19,9 +19,29 @@ yabai -m config focus_follows_mouse autoraise
 # set mouse follows focus mode (default: off)
 yabai -m config mouse_follows_focus on
 
-NEEDED_SPACES=15
+NEEDED_SPACES=16
 REMAINING_SPACES=$(expr $NEEDED_SPACES - $(yabai -m query --spaces | jq '. | length'))
 
 for ((i = 1; i <= REMAINING_SPACES; i++)); do
 	yabai -m space --create
 done
+
+
+# Space labels:
+yabai -m space 2 --label query
+yabai -m space 3 --label whisper
+yabai -m space 4 --label explore
+yabai -m space 5 --label related
+yabai -m space 6 --label sub
+yabai -m space 7 --label dev
+yabai -m space 8 --label execute
+yabai -m space 9 --label command
+yabai -m space 10 --label view
+yabai -m space 11 --label num0
+yabai -m space 12 --label num1
+yabai -m space 13 --label num2
+yabai -m space 14 --label num3
+yabai -m space 15 --label num4
+yabai -m space 16 --label num5
+
+

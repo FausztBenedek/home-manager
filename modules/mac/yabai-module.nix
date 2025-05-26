@@ -9,6 +9,7 @@
   };
   config = lib.mkIf config.option.mac.yabai.enable {
     # Setup:
+    # sudo nvram boot-args=-arm64e_preview_abi
     # skhd --install-service
     # Set a bunch of options in the system settings, based on the docs
     # Disable crutils, see https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition

@@ -44,4 +44,14 @@ yabai -m space 14 --label num3
 yabai -m space 15 --label num4
 yabai -m space 16 --label num5
 
+focus_window () {
+    SPACE_NAME=$(yabai -m query --spaces --space | jq ".label")
+    WINDOW_ID=$(yabai -m query --windows --space | jq ".[] | select (.app=${SPACE_NAME}).id")
+    yabai -m window --focus "${WINDOW_ID}"
+}
 
+# focus window after active space changes
+yabai -m signal --add event=space_changed action="focus_window"
+
+# focus window after active display changes
+yabai -m signal --add event=display_changed action="focus_window"

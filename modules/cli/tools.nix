@@ -15,6 +15,7 @@
     hwatch
     findutils
     tealdeer
+    poppler-utils
     lnav
     podman
     gnugrep

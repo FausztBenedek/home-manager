@@ -27,23 +27,6 @@ for ((i = 1; i <= REMAINING_SPACES; i++)); do
 done
 
 
-# Space labels:
-yabai -m space 2 --label query
-yabai -m space 3 --label whisper
-yabai -m space 4 --label explore
-yabai -m space 5 --label related
-yabai -m space 6 --label sub
-yabai -m space 7 --label dev
-yabai -m space 8 --label execute
-yabai -m space 9 --label command
-yabai -m space 10 --label view
-yabai -m space 11 --label num0
-yabai -m space 12 --label num1
-yabai -m space 13 --label num2
-yabai -m space 14 --label num3
-yabai -m space 15 --label num4
-yabai -m space 16 --label num5
-
 focus_window () {
     SPACE_NAME=$(yabai -m query --spaces --space | jq ".label")
     WINDOW_ID=$(yabai -m query --windows --space | jq ".[] | select (.app=${SPACE_NAME}).id")

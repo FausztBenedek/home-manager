@@ -34,6 +34,14 @@
       });
 
       homeConfigurations = {
+        "fcb" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit self; };
+          modules = [
+            ./modules
+            private-configs.fcb
+          ];
+        };
         "kn" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit self; };

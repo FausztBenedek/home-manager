@@ -10,3 +10,14 @@
 - caps-lock to behave like escape + swap control and fn
     - Settings -> Keyboard -> Keyboard shortcuts -> modifier keys
 - Change key repeat rate and delay until repeat under keyboard settings
+- Rancher desktop (installed from github release page https://github.com/rancher-sandbox/rancher-desktop/releases)
+
+- IntelliJ
+    - Remove cmd+shift+a shortcut from mac
+        - System Preferences > Keyboard > Shortcuts > Services > Text > Search man Page Index in Terminal 
+    - Enable repeating keys: defaults write -g ApplePressAndHoldEnabled 0
+    - Plugins
+        - Vimidea
+        - Astro
+
+- sdkman

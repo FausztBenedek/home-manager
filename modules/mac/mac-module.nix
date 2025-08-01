@@ -8,7 +8,11 @@
 
     home.file = {
       "notes".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Icloud\ notes";
+
     };
+    home.sessionPath = [
+      "${config.home.homeDirectory}/.rd/bin"
+    ];
 
     home.packages = with pkgs; [
       utm

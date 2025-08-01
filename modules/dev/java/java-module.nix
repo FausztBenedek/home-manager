@@ -14,6 +14,13 @@ in
     home.packages = [
       gw
     ];
+
+    home.file.".zshrc.d/sdkman.zsh" = {
+      # Sourcing sdkman related stuff
+      text = ''
+        source $HOME/.sdkman/bin/sdkman-init.sh
+      '';
+    };
   };
 
 }

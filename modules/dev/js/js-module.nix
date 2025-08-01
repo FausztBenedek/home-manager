@@ -8,7 +8,19 @@
     };
   };
   config = lib.mkIf config.option.dev.js.enable {
-    option.dev.js.nvm.enable = true;
+
+    home.sessionVariables = {
+      NVM_DIR = "${config.home.homeDirectory}/.nvm";
+    };
+    home.file = {
+      ".zshrc.d/js.zsh" = {
+        text = ''
+          # init nvm
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        '';
+      };
+    };
   };
 
 }

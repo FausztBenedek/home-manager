@@ -19,7 +19,7 @@ yabai -m config focus_follows_mouse autoraise
 # set mouse follows focus mode (default: off)
 yabai -m config mouse_follows_focus on
 
-NEEDED_SPACES=16
+NEEDED_SPACES=19
 REMAINING_SPACES=$(expr $NEEDED_SPACES - $(yabai -m query --spaces | jq '. | length'))
 
 for ((i = 1; i <= REMAINING_SPACES; i++)); do

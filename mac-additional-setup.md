@@ -1,6 +1,10 @@
 - Yabai
     - https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
     - I always miss step 6: sudo nvram boot-args=-arm64e_preview_abi
+    - Under Desktop & Dock tab
+        - Disable "Automatically rearrange Spaces based on most recent use" in the Mission Control pane
+        - Enable "Show Items On Desktop"
+        - "Click wallpaper to reveal Desktop" should be set to "Only in Stage Manager"
 - Xcode utils
 - Switching control buttons
 - caps-lock to behave like escape + swap control and fn

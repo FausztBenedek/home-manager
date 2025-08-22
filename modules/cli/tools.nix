@@ -14,6 +14,12 @@
     bat
     hwatch
     findutils
+    ant
+    maven
+    trivy
+    graphviz
+    poetry
+    allure
     tealdeer
     poppler-utils
     lnav

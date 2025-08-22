@@ -9,6 +9,7 @@
 - Switching control buttons
 - caps-lock to behave like escape + swap control and fn
     - Settings -> Keyboard -> Keyboard shortcuts -> modifier keys
+- Enable Magic Mouse right click
 - Change key repeat rate and delay until repeat under keyboard settings
 - Rancher desktop (installed from github release page https://github.com/rancher-sandbox/rancher-desktop/releases)
 
@@ -16,6 +17,8 @@
     - Remove cmd+shift+a shortcut from mac
         - System Preferences > Keyboard > Shortcuts > Services > Text > Search man Page Index in Terminal 
     - Enable repeating keys: defaults write -g ApplePressAndHoldEnabled 0
+    - Remove > to be assigned to clear context as shortcut
+    - Disable the setting "Enable commit tool window"
     - Plugins
         - Vimidea
         - Astro

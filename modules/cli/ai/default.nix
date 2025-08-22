@@ -2,6 +2,6 @@
 { ... }:
 {
   imports = [
-    ./ollama.nix
+    # ./ollama.nix Disable, because I set it up manually
   ];
 }

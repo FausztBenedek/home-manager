@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  gw = pkgs.callPackage ./gw-derivation.nix { };
-in
 {
   options = {
     option.dev.java.enable = lib.mkOption {
@@ -11,9 +8,7 @@ in
     };
   };
   config = lib.mkIf config.option.dev.java.enable {
-    home.packages = [
-      gw
-    ];
+    home.packages = [ ];
 
     home.file.".zshrc.d/sdkman.zsh" = {
       # Sourcing sdkman related stuff

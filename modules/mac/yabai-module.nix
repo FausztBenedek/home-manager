@@ -15,7 +15,7 @@
     # Disable crutils, see https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
     home.packages = with pkgs; [
       yabai
-      skhd
+      # skhd # Installed with brew, because it messes things up somehow
       jankyborders
       # I should use yabai -m query --windows instead
       # choose-gui

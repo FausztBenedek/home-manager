@@ -22,7 +22,7 @@ return {
           function()
             return {
               exe = "mdformat",
-              args = { "--wrap 70", "-" },
+              args = { "--wrap 92", "-" },
               stdin = true,
             }
           end,

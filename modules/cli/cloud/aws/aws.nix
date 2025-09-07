@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 {
-  options = { 
+  options = {
     option.cli.cloud.aws.enable = lib.mkOption {
       type = lib.types.bool;
       description = "Enable tools for aws";
@@ -15,6 +15,7 @@
     home.packages = with pkgs; [
       terraform
       terragrunt
+      nodePackages.aws-cdk
       awscli2
       (pkgs.writeShellScriptBin "awsprofile-to-be-sourced" ''
         # Read the AWS config file and extract profile names

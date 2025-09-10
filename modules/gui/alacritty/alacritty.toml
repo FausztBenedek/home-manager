@@ -50,3 +50,9 @@ magenta = "#A02F6F"
 red     = "#AF3029"
 white   = "#FFFCF0"
 yellow  = "#AD8301"
+
+# I always pressed this accidentally, which closed alacritty
+[[keyboard.bindings]]
+key = "D"
+mods = "Control"
+action = "None"

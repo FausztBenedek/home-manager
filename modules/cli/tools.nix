@@ -6,6 +6,7 @@
     gnumake
     wget
     rsync
+    go
     yq-go
     fzf
     unixtools.watch

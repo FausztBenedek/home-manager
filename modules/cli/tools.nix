@@ -7,6 +7,7 @@
     wget
     rsync
     go
+    tesseract
     yq-go
     fzf
     unixtools.watch

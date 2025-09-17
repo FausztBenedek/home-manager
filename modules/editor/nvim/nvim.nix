@@ -37,7 +37,7 @@ in
       libxml2 # xmllint
       nixpkgs-fmt
       nodePackages.fixjson
-      python312Packages.autopep8
+      ruff
       shfmt
       stylua
       taplo # TOML formatter
@@ -46,6 +46,7 @@ in
       mdformat
 
       #Language servers
+      python312Packages.jedi-language-server # python
       pyright # python
       jdt-language-server # For java, the eclipse language server
       lombok # For jdt-language-server's lombok support
@@ -67,6 +68,7 @@ in
         \( -type d -name .gradle -prune \) -o \
         \( -type d -name .idea -prune \) -o \
         \( -type d -name bin -prune \) -o \
+        \( -type d -name .venv -prune \) -o \
         \( -type d -name build -prune \) -o \
         \( -type d -name dist -prune \) -o \
         \( -type d -name localonly -prune \) -o \

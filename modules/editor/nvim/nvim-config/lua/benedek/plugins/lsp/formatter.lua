@@ -51,7 +51,7 @@ return {
           require("formatter.defaults.prettier"),
         },
         python = {
-          require("formatter.filetypes.python").autopep8,
+          require("formatter.filetypes.python").ruff,
         },
         java = {
           require("formatter.filetypes.java").google_java_format,

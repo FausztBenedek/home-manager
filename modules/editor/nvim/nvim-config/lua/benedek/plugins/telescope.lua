@@ -32,7 +32,7 @@ return {
     -- set keymaps
     local builtin = require("telescope.builtin")
 
-    vim.keymap.set("n", "<leader>fF", builtin.find_files, { desc = "Fuzzy find files with relative path to cwd", noremap = true })
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files with relative path to cwd", noremap = true })
     vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Fuzzy find recent files", noremap = true })
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
     vim.keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd", noremap = true })
@@ -44,7 +44,7 @@ return {
         builtin.live_grep()
       end
     end, { desc = "Find string in cwd", noremap = true })
-    vim.keymap.set("n", "<leader>ff", function()
+    vim.keymap.set("n", "<leader>fF", function()
       local node = require("nvim-tree.api").tree.get_node_under_cursor()
       if node and node.type == "directory" then
         telescope_helper

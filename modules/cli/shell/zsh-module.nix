@@ -59,6 +59,15 @@
             src = pkgs.zsh-vi-mode;
             file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
           }
+          {
+            name = "zsh-codex";
+            src = builtins.fetchGit {
+              url = "https://github.com/tom-doerr/zsh_codex";
+              rev = "6ede649f1260abc5ffe91ef050d00549281dc461"; # or better: use a commit hash for reproducibility
+            };
+
+            file = "zsh_codex.plugin.zsh";
+          }
           # TODO https://github.com/softmoth/zsh-vim-mode
         ];
         oh-my-zsh = {
@@ -100,6 +109,11 @@
           for config in ~/.zshrc.d/*.zsh; do
             source $config
           done
+
+          # Trigger zsh_codex
+          bindkey -M emacs '^X' create_completion
+          bindkey -M vicmd '^X' create_completion
+          bindkey -M viins '^X' create_completion
 
           # Workaround for zsh-fzf-history-search plugin, because the default keymap was only available for emacs mode
           bindkey -M emacs '^R' fzf_history_search

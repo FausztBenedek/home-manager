@@ -30,6 +30,7 @@
         ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
       '';
       ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink config.option.starship.config-location;
+      ".config/zsh_codex.ini".source = config.lib.file.mkOutOfStoreSymlink ./zsh_codex.ini;
     };
 
     programs = {

@@ -56,7 +56,7 @@ vim.keymap.set("n", "<leader>vo", function()
   local file_path = vim.fn.expand("%:p")
   local line_number = vim.fn.line(".")
   local command =
-    string.format("/Applications/IntelliJ\\ IDEA.app/Contents/MacOS/idea --line %d %s", line_number, file_path)
+    string.format("~/Applications/PyCharm.app/Contents/MacOS/pycharm --line %d %s", line_number, file_path)
   print(command)
   vim.fn.system(command)
 end, { noremap = true, silent = true, desc = "Opens the current file in Intellij" })

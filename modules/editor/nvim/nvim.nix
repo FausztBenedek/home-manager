@@ -46,8 +46,7 @@ in
       mdformat
 
       #Language servers
-      python312Packages.jedi-language-server # python
-      pyright # python
+      basedpyright # python
       jdt-language-server # For java, the eclipse language server
       lombok # For jdt-language-server's lombok support
       lua-language-server

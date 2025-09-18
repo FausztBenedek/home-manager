@@ -1,5 +1,5 @@
 return function(config)
-  require("lspconfig").pyright.setup({
+  require("lspconfig").basedpyright.setup({
     capabilities = config.capabilities,
   })
 end

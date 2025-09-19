@@ -112,9 +112,9 @@
           done
 
           # Trigger zsh_codex
-          bindkey -M emacs '^X' create_completion
-          bindkey -M vicmd '^X' create_completion
-          bindkey -M viins '^X' create_completion
+          bindkey -M emacs '^x^i' create_completion
+          bindkey -M vicmd '^x^i' create_completion
+          bindkey -M viins '^x^i' create_completion
 
           # Workaround for zsh-fzf-history-search plugin, because the default keymap was only available for emacs mode
           bindkey -M emacs '^R' fzf_history_search

@@ -8,6 +8,7 @@
       (python3.withPackages (python-pkgs: [
         python-pkgs.kubernetes
         python-pkgs.debugpy
+        python-pkgs.tkinter
         python-pkgs.openai
       ]))
     ];

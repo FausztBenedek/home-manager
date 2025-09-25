@@ -12,6 +12,9 @@
     fzf
     unixtools.watch
     jq # to apply JSON path on stdout
+    postgresql
+    codex
+    claude-code
     entr
     bat
     hwatch

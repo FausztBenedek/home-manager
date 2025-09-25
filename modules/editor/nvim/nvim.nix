@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let
   nodeDependencies = (pkgs.callPackage ./node-packages/default.nix { }).nodeDependencies;
 in
@@ -16,7 +16,10 @@ in
 
   };
   config = {
-    programs.neovim.enable = true;
+    programs.neovim = {
+      enable = true;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    };
     # At first launch `nvim --headless "+Lazy! restore" "+Lazy! clean" +qa`
     home.file = {
       ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;

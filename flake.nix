@@ -8,9 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     private-configs.url = "git+ssh://git@github.com/FausztBenedek/sensitive-nix-config?ref=master";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, home-manager, private-configs, ... }:
+  outputs = { self, nixpkgs, home-manager, private-configs, ... }@inputs:
     let
 
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -25,7 +26,7 @@
         homeConfigurations.default = home-manager.lib.homeManagerConfiguration
           {
             pkgs = nixpkgs.legacyPackages.${system};
-            extraSpecialArgs = { inherit self; };
+            extraSpecialArgs = { inherit self; inherit inputs; };
             modules = [
               ./modules
               ./default-options.nix
@@ -36,7 +37,7 @@
       homeConfigurations = {
         "fcb" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit self; };
+          extraSpecialArgs = { inherit self; inherit inputs; };
           modules = [
             ./modules
             private-configs.fcb
@@ -44,7 +45,7 @@
         };
         "kn" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit self; };
+          extraSpecialArgs = { inherit self; inherit inputs; };
           modules = [
             ./modules
             private-configs.kn
@@ -52,7 +53,7 @@
         };
         "private" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit self; };
+          extraSpecialArgs = { inherit self; inherit inputs; };
           modules = [
             ./modules
             private-configs.private
@@ -60,7 +61,7 @@
         };
         "nixos-setup" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit self; }; # TODO Is this needed?
+          extraSpecialArgs = { inherit self; inherit inputs; }; # TODO Is this needed?
           modules = [
             ./modules
             private-configs.nixos-setup

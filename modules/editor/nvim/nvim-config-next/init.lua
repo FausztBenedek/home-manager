@@ -44,8 +44,10 @@ vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default regis
 ------ CORE KEYMAPS ------
 vim.keymap.set('n', '<Esc>', ':<c-u>nohlsearch<CR>', { noremap = true, silent = true }) -- Disables highlight
 vim.keymap.set('n', '<C-q>', ':<c-u>q<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-b>', ':<c-u>bd<CR>', { noremap = true, silent = true })
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { noremap = false, silent = true })
-vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:<c-u>bd!<cr>", { noremap = false, silent = true })
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:<c-u>q!<cr>", { noremap = false, silent = true })
+vim.keymap.set("t", "<C-b>", "<C-\\><C-n>:<c-u>bd!<cr>", { noremap = false, silent = true })
 vim.keymap.set("n", "<C-t>", ":<c-u>25 sp | term<cr>i", { noremap = false, silent = true })
 
 vim.keymap.set('n', '<C-n>', ':<c-u>tabn<cr>', { noremap = true, silent = true })
@@ -175,6 +177,9 @@ require('mini.pick').setup({
 vim.keymap.set('n', '<leader>ff', function()
   MiniPick.builtin.files({ tool = 'git' })
 end, { noremap = false, silent = true, desc = 'CamelToDash' })
+vim.keymap.set('n', '<leader>fb', function()
+  MiniPick.builtin.buffers()
+end, { noremap = false, silent = true, desc = 'CamelToDash' })
 vim.keymap.set('n', '<leader>fs', function()
   MiniPick.builtin.grep({ tool = 'git' })
 end, { noremap = false, silent = true, desc = 'CamelToDash' })
@@ -210,6 +215,7 @@ local treesitter_languages = {
   -- Other
   'java',
   'python',
+  'rust',
   'nix',
 }
 require('nvim-treesitter').install(treesitter_languages)

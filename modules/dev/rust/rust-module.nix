@@ -9,6 +9,7 @@
   };
   config = lib.mkIf config.option.dev.rust.enable {
     # I installed rust with the script on their website, for now, because I am new to it
+    # The rust-analyzer was missing, suggested fix is `rustup component add rust-analyzer`
     home.sessionPath = [
       "${config.home.homeDirectory}/.cargo/bin"
     ];

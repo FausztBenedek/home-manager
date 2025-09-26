@@ -56,6 +56,9 @@ require("formatter").setup({
     java = {
       require("formatter.filetypes.java").google_java_format,
     },
+    rust = {
+      require("formatter.filetypes.rust").rustfmt,
+    },
     toml = { -- align_entries was not an available option, so had to do it manually
       function()
         return {

@@ -243,7 +243,8 @@ vim.keymap.set("n", "<c-e><c-f>", ":<c-u>Oil<cr>", { noremap = true, silent = tr
 require('nvim-autopairs').setup({})
 
 require('hacky.incremental-selection')
-require('ide.lsp-setup')
 require('ide.git-setup')
+require('ide.lsp-setup')
 require('ide.formatter-setup')
+require('ide.test-setup')
 

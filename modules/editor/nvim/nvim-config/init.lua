@@ -157,13 +157,13 @@ require("mini.pick").setup({
 	},
 })
 vim.keymap.set("n", "<leader>ff", function()
-	MiniPick.builtin.files({ tool = "git" })
+	require("mini.pick").builtin.files()
 end, { noremap = false, silent = true, desc = "CamelToDash" })
 vim.keymap.set("n", "<leader>fb", function()
-	MiniPick.builtin.buffers()
+	require("mini.pick").builtin.buffers()
 end, { noremap = false, silent = true, desc = "CamelToDash" })
 vim.keymap.set("n", "<leader>fs", function()
-	MiniPick.builtin.grep({ tool = "git" })
+	require("mini.pick").builtin.grep()
 end, { noremap = false, silent = true, desc = "CamelToDash" })
 
 -- https://github.com/nvim-treesitter/nvim-treesitter

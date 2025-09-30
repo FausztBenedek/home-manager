@@ -22,7 +22,7 @@ in
     };
     # At first launch `nvim --headless "+Lazy! restore" "+Lazy! clean" +qa`
     home.file = {
-      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.HM}/modules/editor/nvim/nvim-config-next";
+      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink config.option.nvim.config-location;
       # Used by java.lua, when jdtls starts. Details in java.lua.
       ".local/share/nvim/jdtls-workspace/config_mac/config.ini".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.jdt-language-server}/share/java/jdtls/config_mac/config.ini";
     };

@@ -217,11 +217,11 @@
     },
     "private-configs": {
       "locked": {
-        "lastModified": 1758810357,
-        "narHash": "sha256-rvid9ZcGSw6uZi17x2s4usmw6FHNbLShQk6I/As1aIg=",
+        "lastModified": 1759245315,
+        "narHash": "sha256-+/ThpeQl0sY1/Z8LR73h7BjdrF2TqvigLKLURXq0D44=",
         "ref": "master",
-        "rev": "75f54da8af8b043fe1d6891e6abb522e4c6230c4",
-        "revCount": 30,
+        "rev": "b807870b6eaaff7f33412cf56ee17d378d282048",
+        "revCount": 31,
         "type": "git",
         "url": "ssh://git@github.com/FausztBenedek/sensitive-nix-config"
       },

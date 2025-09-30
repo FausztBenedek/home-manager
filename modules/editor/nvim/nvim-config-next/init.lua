@@ -12,9 +12,6 @@
 ------ OPTIONS ------
 vim.g.mapleader = " "
 
--- TODO Delete
--- vim.keymap.set('n', '<leader>r', ':<c-u>restart<cr>', { noremap = false, silent = true })
--- TODO End delete block
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -91,6 +88,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/tpope/vim-repeat" },
 	{ src = "https://github.com/famiu/bufdelete.nvim" },
+	{ src = "https://github.com/junegunn/vim-peekaboo" },
 
 	-- Plugins needing configuration (at least a setup function)
 	{ src = "https://github.com/chiedo/vim-case-convert" },
@@ -100,6 +98,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/justinmk/vim-sneak" },
+	{ src = "https://github.com/machakann/vim-highlightedyank" },
 }, { confirm = false })
 
 -- https://github.com/chiedo/vim-case-convert
@@ -220,6 +219,9 @@ vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>Sneak_f", { noremap = true, silent
 vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>Sneak_F", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "t", "<Plug>Sneak_t", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "T", "<Plug>Sneak_T", { noremap = true, silent = true })
+
+-- https://github.com/machakann/vim-highlightedyank
+vim.g.highlightedyank_highlight_duration = 300
 
 require("hacky.incremental-selection")
 require("ide.git-setup")

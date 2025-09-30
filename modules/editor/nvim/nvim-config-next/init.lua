@@ -89,6 +89,7 @@ vim.pack.add({
 	{ src = "https://github.com/itchyny/vim-qfedit" },
 	{ src = "https://github.com/tpope/vim-surround" },
 	{ src = "https://github.com/folke/which-key.nvim" },
+	{ src = "https://github.com/tpope/vim-repeat" },
 
 	-- Plugins needing configuration (at least a setup function)
 	{ src = "https://github.com/chiedo/vim-case-convert" },
@@ -97,6 +98,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/justinmk/vim-sneak" },
 }, { confirm = false })
 
 -- https://github.com/chiedo/vim-case-convert
@@ -209,6 +211,14 @@ vim.keymap.set("n", "<c-e><c-f>", ":<c-u>Oil<cr>", { noremap = true, silent = tr
 
 -- https://github.com/windwp/nvim-autopairs
 require("nvim-autopairs").setup({})
+
+-- https://github.com/justinmk/vim-sneak
+vim.keymap.set({ "x" }, "ű", "<Plug>Sneak_s", { noremap = true, silent = true })
+vim.keymap.set({ "x" }, "Ű", "<Plug>Sneak_S", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>Sneak_f", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>Sneak_F", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "t", "<Plug>Sneak_t", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "T", "<Plug>Sneak_T", { noremap = true, silent = true })
 
 require("hacky.incremental-selection")
 require("ide.git-setup")

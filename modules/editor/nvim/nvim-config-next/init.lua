@@ -37,13 +37,13 @@ vim.opt.swapfile = false
 
 -- Highlight the current line where the cursor is currently
 vim.opt.cursorline = true
-vim.cmd("colorscheme darkblue")
+vim.cmd("colorscheme shine")
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 ------ CORE KEYMAPS ------
 vim.keymap.set("n", "<Esc>", ":<c-u>nohlsearch<CR>", { noremap = true, silent = true }) -- Disables highlight
 vim.keymap.set("n", "<C-q>", ":<c-u>q<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-b>", ":<c-u>bd<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-b>", ":<c-u>Bdelete<CR>", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { noremap = false, silent = true })
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:<c-u>q!<cr>", { noremap = false, silent = true })
 vim.keymap.set("t", "<C-b>", "<C-\\><C-n>:<c-u>bd!<cr>", { noremap = false, silent = true })
@@ -90,6 +90,7 @@ vim.pack.add({
 	{ src = "https://github.com/tpope/vim-surround" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/tpope/vim-repeat" },
+	{ src = "https://github.com/famiu/bufdelete.nvim" },
 
 	-- Plugins needing configuration (at least a setup function)
 	{ src = "https://github.com/chiedo/vim-case-convert" },

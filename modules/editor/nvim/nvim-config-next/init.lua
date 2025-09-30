@@ -38,6 +38,12 @@ vim.cmd("colorscheme shine")
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 ------ CORE KEYMAPS ------
+vim.keymap.set(
+	"n",
+	"<leader><leader><leader>",
+	":<c-u>source<CR>",
+	{ noremap = true, silent = true, desc = "Sourcing the configuration" }
+) -- Disables highlight
 vim.keymap.set("n", "<Esc>", ":<c-u>nohlsearch<CR>", { noremap = true, silent = true }) -- Disables highlight
 vim.keymap.set("n", "<C-q>", ":<c-u>q<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-b>", ":<c-u>Bdelete<CR>", { noremap = true, silent = true })
@@ -89,6 +95,7 @@ vim.pack.add({
 	{ src = "https://github.com/tpope/vim-repeat" },
 	{ src = "https://github.com/famiu/bufdelete.nvim" },
 	{ src = "https://github.com/junegunn/vim-peekaboo" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" }, -- neotest and buffer_manager depend on this
 
 	-- Plugins needing configuration (at least a setup function)
 	{ src = "https://github.com/chiedo/vim-case-convert" },
@@ -99,6 +106,7 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/justinmk/vim-sneak" },
 	{ src = "https://github.com/machakann/vim-highlightedyank" },
+	{ src = "https://github.com/j-morano/buffer_manager.nvim" },
 }, { confirm = false })
 
 -- https://github.com/chiedo/vim-case-convert
@@ -222,6 +230,33 @@ vim.keymap.set({ "n", "x", "o" }, "T", "<Plug>Sneak_T", { noremap = true, silent
 
 -- https://github.com/machakann/vim-highlightedyank
 vim.g.highlightedyank_highlight_duration = 300
+
+-- https://github.com/j-morano/buffer_manager.nvim
+require("buffer_manager").setup({
+	width = 0.9,
+	height = 0.9,
+	short_file_names = true,
+	short_term_names = true,
+	select_menu_item_commands = {
+		v = {
+			key = "<C-v>",
+			command = "vsplit",
+		},
+		h = {
+			key = "<C-s>",
+			command = "split",
+		},
+	},
+})
+vim.keymap.set("n", "<leader>bb", function()
+	require("buffer_manager.ui").toggle_quick_menu()
+end, { noremap = true, silent = true, desc = "Toggle buffer manager menu" })
+vim.keymap.set("n", "<leader>bs", function()
+	require("buffer_manager.ui").save_menu_to_file()
+end, { noremap = true, silent = true, desc = "Save buffer list to file" })
+vim.keymap.set("n", "<leader>bl", function()
+	require("buffer_manager.ui").save_menu_to_file()
+end, { noremap = true, silent = true, desc = "Load buffer list from file" })
 
 require("hacky.incremental-selection")
 require("ide.git-setup")

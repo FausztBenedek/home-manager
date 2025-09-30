@@ -34,8 +34,11 @@ vim.opt.swapfile = false
 
 -- Highlight the current line where the cursor is currently
 vim.opt.cursorline = true
-vim.cmd("colorscheme shine")
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+------ THEME ------;
+vim.pack.add({ "https://github.com/catppuccin/nvim" }, { confirm = false })
+vim.cmd("colorscheme catppuccin-latte")
 
 ------ CORE KEYMAPS ------
 vim.keymap.set(

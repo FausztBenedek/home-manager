@@ -16,46 +16,71 @@ action = "None"
 [window]
 blur        = true
 decorations = "Buttonless" # For initial setup on macos "Full" (Shows the 3 window controlling buttons)
-opacity     = 0.85
+opacity     = 1
 
 # Theme
-[colors.normal]
-black   = "#100F0F"
-blue    = "#205EA6"
-cyan    = "#24837B"
-green   = "#66800B"
-magenta = "#A02F6F"
-red     = "#AF3029"
-white   = "#FFFCF0"
-yellow  = "#AD8301"
-
 [colors.primary]
-background        = "#282726"
-bright_foreground = "#FFFCF0"
-dim_foreground    = "#FFFCF0"
-foreground        = "#FFFCF0"
-
-[colors.bright]
-black   = "#100F0F"
-blue    = "#4385BE"
-cyan    = "#3AA99F"
-green   = "#879A39"
-magenta = "#CE5D97"
-red     = "#D14D41"
-white   = "#FFFCF0"
-yellow  = "#D0A215"
+background = "#eff1f5"
+foreground = "#4c4f69"
+dim_foreground = "#8c8fa1"
+bright_foreground = "#4c4f69"
 
 [colors.cursor]
-cursor = "#3AA99F"
-text   = "#FFFCF0"
+text = "#eff1f5"
+cursor = "#dc8a78"
 
-[colors.dim]
-black   = "#100F0F"
-blue    = "#205EA6"
-cyan    = "#24837B"
-green   = "#66800B"
-magenta = "#A02F6F"
-red     = "#AF3029"
-white   = "#FFFCF0"
-yellow  = "#AD8301"
+[colors.vi_mode_cursor]
+text = "#eff1f5"
+cursor = "#7287fd"
 
+[colors.search.matches]
+foreground = "#eff1f5"
+background = "#6c6f85"
+
+[colors.search.focused_match]
+foreground = "#eff1f5"
+background = "#40a02b"
+
+[colors.footer_bar]
+foreground = "#eff1f5"
+background = "#6c6f85"
+
+[colors.hints.start]
+foreground = "#eff1f5"
+background = "#df8e1d"
+
+[colors.hints.end]
+foreground = "#eff1f5"
+background = "#6c6f85"
+
+[colors.selection]
+text = "#eff1f5"
+background = "#dc8a78"
+
+[colors.normal]
+black = "#bcc0cc"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#179299"
+white = "#5c5f77"
+
+[colors.bright]
+black = "#acb0be"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#179299"
+white = "#6c6f85"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fe640b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#dc8a78"

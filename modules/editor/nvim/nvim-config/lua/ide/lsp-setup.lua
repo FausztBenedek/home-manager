@@ -54,6 +54,7 @@ vim.lsp.enable("basedpyright")
 vim.lsp.enable("bashls")
 vim.lsp.enable("astro")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable('nixd')
 vim.lsp.config("lua_ls", {
 	on_init = function(client)
 		if client.workspace_folders then

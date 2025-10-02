@@ -16,7 +16,7 @@ action = "None"
 [window]
 blur        = true
 decorations = "Buttonless" # For initial setup on macos "Full" (Shows the 3 window controlling buttons)
-opacity     = 1
+opacity     = 0.9
 
 # Theme
 [colors.primary]

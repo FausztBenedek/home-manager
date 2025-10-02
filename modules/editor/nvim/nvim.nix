@@ -31,7 +31,6 @@ in
     };
 
     home.packages = with pkgs; [
-      gcc
       fzf
       tree-sitter
       ripgrep #For nvim telescope grep_string to work

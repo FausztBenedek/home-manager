@@ -3,6 +3,12 @@
   home.packages = with pkgs; [
     coreutils
     gnused
+    (
+      curl.override
+        {
+          opensslSupport = true;
+        }
+    )
     gnumake
     wget
     rsync
@@ -17,6 +23,7 @@
     claude-code
     entr
     bat
+    qemu
     hwatch
     findutils
     ant

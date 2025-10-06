@@ -73,6 +73,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n>", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-n>", "<C-\\><C-n>:tabn<cr>", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-p>", "<C-\\><C-n>:tabp<cr>", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true })
@@ -82,6 +85,13 @@ vim.keymap.set("n", "<C-.>", "mJA;<esc>`J", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-,>", "mJA,<esc>`J", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-.>", "<esc>mJA;<esc>`J", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-,>", "<esc>mJA,<esc>`J", { noremap = true, silent = true })
+
+vim.keymap.set(
+	"n",
+	"<leader>sfj",
+	":<c-u>set filetype=json<cr>",
+	{ noremap = true, silent = true, desc = ":set filetype=json" }
+)
 
 -- English keyboard similarity maps
 vim.api.nvim_set_keymap("n", "ú", "]", { noremap = false, silent = true }) -- must remain nvim_set_keymap, other does not work

@@ -4,6 +4,10 @@ vim.pack.add({
 
 -- https://github.com/stevearc/overseer.nvim.git
 require("overseer").setup({
+	strategy = {
+		"jobstart",
+		use_terminal = false,
+	},
 	task_list = {
 		bindings = {
 			["<C-h>"] = false,

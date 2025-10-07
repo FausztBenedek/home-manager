@@ -12,6 +12,9 @@
         python-pkgs.debugpy
         python-pkgs.tkinter
         python-pkgs.openai
+        python-pkgs.pandas
+        python-pkgs.openpyxl
+        python-pkgs.xlsxwriter
       ]))
     ];
   };

@@ -89,8 +89,14 @@ vim.keymap.set("i", "<C-,>", "<esc>mJA,<esc>`J", { noremap = true, silent = true
 vim.keymap.set(
 	"n",
 	"<leader>sfj",
-	":<c-u>set filetype=json<cr>",
+	":<c-u>set filetype=json<cr>:<c-u>set modifiable<cr>",
 	{ noremap = true, silent = true, desc = ":set filetype=json" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>sfl",
+	":<c-u>set filetype=log<cr>",
+	{ noremap = true, silent = true, desc = ":set filetype=log" }
 )
 
 -- English keyboard similarity maps
@@ -220,6 +226,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- https://github.com/stevearc/oil.nvim
 require("oil").setup({
+	default_file_explorer = true,
 	keymaps = {
 		["<C-v>"] = { "actions.select", opts = { vertical = true } },
 		["<C-s>"] = { "actions.select", opts = { horizontal = true } },
@@ -227,7 +234,10 @@ require("oil").setup({
 		["<C-l>"] = false,
 	},
 })
-vim.keymap.set("n", "<c-e><c-e>", ":<c-u>Oil " .. vim.fn.getcwd() .. "<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-e><c-e>", function()
+	-- Using a callback, because vim.fn.getcwd() might change after startup
+	vim.cmd("Oil " .. vim.fn.getcwd())
+end, { noremap = true, silent = true })
 vim.keymap.set("n", "<c-e><c-f>", ":<c-u>Oil<cr>", { noremap = true, silent = true })
 
 -- https://github.com/windwp/nvim-autopairs
@@ -272,6 +282,7 @@ vim.keymap.set("n", "<leader>bl", function()
 end, { noremap = true, silent = true, desc = "Load buffer list from file" })
 
 require("hacky.incremental-selection")
+require("hacky.change-cwd")
 require("ide.git-setup")
 require("ide.lsp-setup")
 require("ide.formatter-setup")

@@ -98,6 +98,12 @@ vim.keymap.set(
 	":<c-u>set filetype=log<cr>",
 	{ noremap = true, silent = true, desc = ":set filetype=log" }
 )
+vim.keymap.set(
+	"n",
+	"<leader>sfm",
+	":<c-u>set filetype=markdown<cr>:<c-u>set modifiable<cr>",
+	{ noremap = true, silent = true, desc = ":set filetype=markdown" }
+)
 
 -- English keyboard similarity maps
 vim.api.nvim_set_keymap("n", "ú", "]", { noremap = false, silent = true }) -- must remain nvim_set_keymap, other does not work
@@ -115,6 +121,9 @@ vim.pack.add({
 	{ src = "https://github.com/famiu/bufdelete.nvim" },
 	{ src = "https://github.com/junegunn/vim-peekaboo" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" }, -- neotest and buffer_manager depend on this
+	{ src = "https://github.com/nvim-mini/mini.icons" }, -- oil.nvim depends on this
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- oil.nvim depends on this
+	{ src = "https://github.com/norcalli/nvim-colorizer.lua" },
 
 	-- Plugins needing configuration (at least a setup function)
 	{ src = "https://github.com/chiedo/vim-case-convert" },
@@ -244,8 +253,8 @@ vim.keymap.set("n", "<c-e><c-f>", ":<c-u>Oil<cr>", { noremap = true, silent = tr
 require("nvim-autopairs").setup({})
 
 -- https://github.com/justinmk/vim-sneak
-vim.keymap.set({ "x" }, "ű", "<Plug>Sneak_s", { noremap = true, silent = true })
-vim.keymap.set({ "x" }, "Ű", "<Plug>Sneak_S", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "ű", "<Plug>Sneak_s", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "Ű", "<Plug>Sneak_S", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>Sneak_f", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>Sneak_F", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "t", "<Plug>Sneak_t", { noremap = true, silent = true })
@@ -258,8 +267,7 @@ vim.g.highlightedyank_highlight_duration = 300
 require("buffer_manager").setup({
 	width = 0.9,
 	height = 0.9,
-	short_file_names = true,
-	short_term_names = true,
+	show_indicators = "before",
 	select_menu_item_commands = {
 		v = {
 			key = "<C-v>",

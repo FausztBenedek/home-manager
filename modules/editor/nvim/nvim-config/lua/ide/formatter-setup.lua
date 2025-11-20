@@ -33,10 +33,16 @@ require("formatter").setup({
     html = {
       require("formatter.filetypes.html").prettier,
     },
+    svg = {
+      require("formatter.filetypes.xml").xmllint,
+    },
     lua = {
       -- "formatter.filetypes.lua" defines default configurations for the
       -- "lua" filetype
       require("formatter.filetypes.lua").stylua,
+    },
+    terraform = {
+      require("formatter.filetypes.terraform").terraformfmt,
     },
     typescript = {
       require("formatter.defaults.prettier"),

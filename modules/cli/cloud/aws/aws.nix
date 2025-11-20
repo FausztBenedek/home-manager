@@ -48,6 +48,10 @@
         awsprofile() {
            source awsprofile-to-be-sourced $1
         }
+
+        # Eanble aws completion based on this 
+        # https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-completion.html#cli-command-completion-linux
+        complete -C '/Users/benedekfauszt/.nix-profile/bin/aws_completer' aws
       '';
     };
     # Faccher's trick to download stuff from aws

@@ -28,7 +28,8 @@ $python\
 [](fg:color_aqua bg:color_bg1)\
 $time\
 [](fg:color_bg1)\
-$line_break$character"""
+$line_break$aws$character
+"""
 
 palette = 'my_palette'
 
@@ -169,6 +170,10 @@ format      = '[[   $time ](fg:color_fg0 bg:color_bg1)]($style)'
 
 [line_break]
 disabled = false
+
+[aws]
+format = '󰸏 [($profile )(\($region\) )]($style)'
+style = 'bold blue'
 
 [character]
 disabled                  = false

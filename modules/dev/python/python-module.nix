@@ -15,6 +15,7 @@
         python-pkgs.pandas
         python-pkgs.openpyxl
         python-pkgs.xlsxwriter
+        python-pkgs.sentence-transformers
       ]))
     ];
   };

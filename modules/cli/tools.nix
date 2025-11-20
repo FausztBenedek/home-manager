@@ -13,6 +13,9 @@
     wget
     rsync
     go
+    gh
+    act
+    editorconfig-checker
     tesseract
     yq-go
     fzf

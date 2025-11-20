@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   options = {
     option.dev.js.enable = lib.mkOption {
@@ -9,6 +9,10 @@
   };
   config = lib.mkIf config.option.dev.js.enable {
 
+    home.packages = with pkgs; [
+      pnpm
+
+    ];
     home.sessionVariables = {
       NVM_DIR = "${config.home.homeDirectory}/.nvm";
     };

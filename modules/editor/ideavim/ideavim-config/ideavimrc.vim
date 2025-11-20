@@ -46,6 +46,8 @@ Plug 'tpope/vim-surround'
 " justinmk/vim-sneak
 xmap ű <Plug>Sneak_s
 xmap Ű <Plug>Sneak_S
+nmap ű <Plug>Sneak_s
+nmap Ű <Plug>Sneak_S
 
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
@@ -65,6 +67,10 @@ map <A-j> <Action>(EditorUnSelectWord)
 nmap <leader>fs <Action>(FindInPath)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>wh <Action>(HideAllWindows)
+nmap ú ]
+nmap ő [
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
 
 nmap <C-t> <Action>(ActivateTerminalToolWindow)
 nmap <C-e><C-f> <Action>(SelectInProjectView)

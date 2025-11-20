@@ -1,9 +1,14 @@
 
 :: default : paint-borders-yabai-main-mode
 :: windowmanager @ : paint-borders-yabai-window-manager-mode
+:: disable_skhd : yabai -m config top_padding 0 bottom_padding 0 left_padding 0 right_padding 0 window_gap 0
 
 ctrl - a ; windowmanager
+ctrl - 0x29 ; disable_skhd
 
+# disable_skhd mode
+disable_skhd < ctrl - 0x2A ; default
+disable_skhd < ctrl - 0x29 : skhd -k "ctrl - 0x2A" ; yabai -m config top_padding 5 bottom_padding 5 left_padding 5 right_padding 5 window_gap 15
 
 # window realted
 ctrl + cmd - l : yabai -m window --focus east

@@ -8,11 +8,8 @@ sudo yabai --load-sa
 yabai -m config layout bsp
 
 # Set all padding and gaps to 20pt (default: 0)
-yabai -m config top_padding 5
-yabai -m config bottom_padding 5
-yabai -m config left_padding 5
-yabai -m config right_padding 5
-yabai -m config window_gap 15
+# This is repeated in skhdrc when going to disabled mode
+yabai -m config top_padding 5 config bottom_padding 5 config left_padding 5 config right_padding 5 config window_gap 15
 
 # set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
 yabai -m config focus_follows_mouse autoraise

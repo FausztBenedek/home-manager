@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, system, inputs, ... }:
 {
   home.packages = with pkgs; [
+    inputs.benedek-neovim-flake.packages.${system}.default
     coreutils
     gnused
     (

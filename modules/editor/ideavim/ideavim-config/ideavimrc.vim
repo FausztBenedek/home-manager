@@ -44,11 +44,16 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 " justinmk/vim-sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 xmap ű <Plug>Sneak_s
 xmap Ű <Plug>Sneak_S
 nmap ű <Plug>Sneak_s
 nmap Ű <Plug>Sneak_S
-
+"xmap f <Plug>Sneak_f
+"xmap F <Plug>Sneak_F
+"nmap f <Plug>Sneak_f
+"nmap F <Plug>Sneak_F
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>ll <Action>(ReformatCode)

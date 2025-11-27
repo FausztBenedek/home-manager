@@ -24,3 +24,5 @@
         - Astro
 
 - sdkman
+- copy keylayout: `cp $HM/mac/us-benedek-xkb-querty.keylayout ~/Library/Keyboard\ Layouts`
+

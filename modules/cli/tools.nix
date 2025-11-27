@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     inputs.benedek-neovim-flake.packages.${system}.default
     coreutils
+    ripgrep
+    fd
     gnused
     (
       curl.override

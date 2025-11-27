@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1764259319,
-        "narHash": "sha256-uEtwOKdKMIR5pN9Mn0yi1ZMYayHWcolOS79Ug+svwVc=",
+        "lastModified": 1764261025,
+        "narHash": "sha256-al7de+l8yMWMir1DHVxhwxtGSq9oihXIs/CiduhAwxs=",
         "owner": "FausztBenedek",
         "repo": "nvim-flake",
-        "rev": "0659e85809b3748cf845c0a168e17e01ce8c1ab5",
+        "rev": "701dd25949adc81a4c722ff5fad36be8494d81b3",
         "type": "github"
       },
       "original": {
@@ -106,11 +106,11 @@
     },
     "private-configs": {
       "locked": {
-        "lastModified": 1759245315,
-        "narHash": "sha256-+/ThpeQl0sY1/Z8LR73h7BjdrF2TqvigLKLURXq0D44=",
+        "lastModified": 1764260301,
+        "narHash": "sha256-wBwVxkdN5Ah5uEriFJprDIpO7vGXY9NPgcRyT/I9Yxc=",
         "ref": "master",
-        "rev": "b807870b6eaaff7f33412cf56ee17d378d282048",
-        "revCount": 31,
+        "rev": "b460e7a7e3effbdd849039c571ad4fd1e7ee1839",
+        "revCount": 33,
         "type": "git",
         "url": "ssh://git@github.com/FausztBenedek/sensitive-nix-config"
       },

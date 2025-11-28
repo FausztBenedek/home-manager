@@ -117,32 +117,38 @@ windowmanager < ctrl - v : skhd -k "escape";\yabai -m space --focus 13
 windowmanager < shift - v : yabai -m window --space 13
 windowmanager < ctrl + shift - v : skhd -k "escape";\yabai -m window --space 13;\yabai -m space --focus 13
 
-windowmanager < 0 : yabai -m space --focus 14
-windowmanager < ctrl - 0 : skhd -k "escape";\yabai -m space --focus 14
-windowmanager < shift - 0 : yabai -m window --space 14
-windowmanager < ctrl + shift - 0 : skhd -k "escape";\yabai -m window --space 14;\yabai -m space --focus 14
+# 0x0A is ~
+windowmanager < 0x0A : yabai -m space --focus 15
+windowmanager < ctrl - 0x0A : skhd -k "escape";\yabai -m space --focus 14
+windowmanager < shift - 0x0A : yabai -m window --space 14
+windowmanager < ctrl + shift - 0x0A : skhd -k "escape";\yabai -m window --space 14;\yabai -m space --focus 14
 
-windowmanager < 1 : yabai -m space --focus 15
-windowmanager < ctrl - 1 : skhd -k "escape";\yabai -m space --focus 15
-windowmanager < shift - 1 : yabai -m window --space 15
-windowmanager < ctrl + shift - 1 : skhd -k "escape";\yabai -m window --space 15;\yabai -m space --focus 15
+# 0x12 is &
+windowmanager < 0x12 : yabai -m space --focus 15
+windowmanager < ctrl - 0x12 : skhd -k "escape";\yabai -m space --focus 15
+windowmanager < shift - 0x12 : yabai -m window --space 15
+windowmanager < ctrl + shift - 0x12 : skhd -k "escape";\yabai -m window --space 15;\yabai -m space --focus 15
 
-windowmanager < 2 : yabai -m space --focus 16
-windowmanager < ctrl - 2 : skhd -k "escape";\yabai -m space --focus 16
-windowmanager < shift - 2 : yabai -m window --space 16
-windowmanager < ctrl + shift - 2 : skhd -k "escape";\yabai -m window --space 16;\yabai -m space --focus 16
+# 0x13 is {
+windowmanager < 0x13 : yabai -m space --focus 16
+windowmanager < ctrl - 0x13 : skhd -k "escape";\yabai -m space --focus 16
+windowmanager < shift - 0x13 : yabai -m window --space 16
+windowmanager < ctrl + shift - 0x13 : skhd -k "escape";\yabai -m window --space 16;\yabai -m space --focus 16
 
-windowmanager < 3 : yabai -m space --focus 17
-windowmanager < ctrl - 3 : skhd -k "escape";\yabai -m space --focus 17
-windowmanager < shift - 3 : yabai -m window --space 17
-windowmanager < ctrl + shift - 3 : skhd -k "escape";\yabai -m window --space 17;\yabai -m space --focus 17
+# 0x14 is }
+windowmanager < 0x14 : yabai -m space --focus 17
+windowmanager < ctrl - 0x14 : skhd -k "escape";\yabai -m space --focus 17
+windowmanager < shift - 0x14 : yabai -m window --space 17
+windowmanager < ctrl + shift - 0x14 : skhd -k "escape";\yabai -m window --space 17;\yabai -m space --focus 17
 
-windowmanager < 4 : yabai -m space --focus 18
-windowmanager < ctrl - 4 : skhd -k "escape";\yabai -m space --focus 18
-windowmanager < shift - 4 : yabai -m window --space 18
-windowmanager < ctrl + shift - 4 : skhd -k "escape";\yabai -m window --space 18;\yabai -m space --focus 18
+# 0x15 is -
+windowmanager < 0x15 : yabai -m space --focus 18
+windowmanager < ctrl - 0x15 : skhd -k "escape";\yabai -m space --focus 18
+windowmanager < shift - 0x15 : yabai -m window --space 18
+windowmanager < ctrl + shift - 0x15 : skhd -k "escape";\yabai -m window --space 18;\yabai -m space --focus 18
 
-windowmanager < 5 : yabai -m space --focus 19
-windowmanager < ctrl - 5 : skhd -k "escape";\yabai -m space --focus 19
-windowmanager < shift - 5 : yabai -m window --space 19
-windowmanager < ctrl + shift - 5 : skhd -k "escape";\yabai -m window --space 19;\yabai -m space --focus 19
+# 0x17 is _
+windowmanager < 0x17 : yabai -m space --focus 19
+windowmanager < ctrl - 0x17 : skhd -k "escape";\yabai -m space --focus 19
+windowmanager < shift - 0x17 : yabai -m window --space 19
+windowmanager < ctrl + shift - 0x17 : skhd -k "escape";\yabai -m window --space 19;\yabai -m space --focus 19

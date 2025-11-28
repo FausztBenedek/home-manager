@@ -77,6 +77,8 @@
           theme = "agnoster";
         };
         initContent = ''
+          setopt IGNORE_EOF # Prevents <C-D> to accidentally close alacritty
+
           # Unbind control + right and left arrow coming from oh-my-zsh in $ZSH/lib/key-bindings.zsh
           bindkey -r '^[[1;5C'
           bindkey -r '^[[1;5D'

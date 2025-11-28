@@ -7,12 +7,6 @@ size = 14
 family = "JetBrainsMono Nerd Font"
 # family = "ZedMono Nerd Font Mono"  # My previous fond
 
-# I always pressed this accidentally, which closed alacritty
-[[keyboard.bindings]]
-key = "D"
-mods = "Control"
-action = "None"
-
 [window]
 blur        = true
 decorations = "Buttonless" # For initial setup on macos "Full" (Shows the 3 window controlling buttons)

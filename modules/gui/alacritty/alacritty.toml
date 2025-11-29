@@ -2,7 +2,7 @@
 live_config_reload = true
 
 [font]
-size = 14
+size = 12
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 # family = "ZedMono Nerd Font Mono"  # My previous fond
@@ -12,69 +12,79 @@ blur        = true
 decorations = "Buttonless" # For initial setup on macos "Full" (Shows the 3 window controlling buttons)
 opacity     = 0.9
 
-# Theme
+# Dracula theme for Alacritty
+# https://draculatheme.com/alacritty
+#
+# Color palette
+# https://spec.draculatheme.com
+#
+# Instructions
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
+
 [colors.primary]
-background = "#eff1f5"
-foreground = "#4c4f69"
-dim_foreground = "#8c8fa1"
-bright_foreground = "#4c4f69"
+
+background = "#282a36"
+foreground = "#f8f8f2"
+bright_foreground = "#ffffff"
 
 [colors.cursor]
-text = "#eff1f5"
-cursor = "#dc8a78"
+
+text = "#282a36"
+cursor = "#f8f8f2"
 
 [colors.vi_mode_cursor]
-text = "#eff1f5"
-cursor = "#7287fd"
 
-[colors.search.matches]
-foreground = "#eff1f5"
-background = "#6c6f85"
-
-[colors.search.focused_match]
-foreground = "#eff1f5"
-background = "#40a02b"
-
-[colors.footer_bar]
-foreground = "#eff1f5"
-background = "#6c6f85"
-
-[colors.hints.start]
-foreground = "#eff1f5"
-background = "#df8e1d"
-
-[colors.hints.end]
-foreground = "#eff1f5"
-background = "#6c6f85"
+text = "CellBackground"
+cursor = "CellForeground"
 
 [colors.selection]
-text = "#eff1f5"
-background = "#dc8a78"
+
+text = "CellForeground"
+background = "#44475a"
 
 [colors.normal]
-black = "#bcc0cc"
-red = "#d20f39"
-green = "#40a02b"
-yellow = "#df8e1d"
-blue = "#1e66f5"
-magenta = "#ea76cb"
-cyan = "#179299"
-white = "#5c5f77"
+
+black = "#21222c"
+red = "#ff5555"
+green = "#50fa7b"
+yellow = "#f1fa8c"
+blue = "#bd93f9"
+magenta = "#ff79c6"
+cyan = "#8be9fd"
+white = "#f8f8f2"
 
 [colors.bright]
-black = "#acb0be"
-red = "#d20f39"
-green = "#40a02b"
-yellow = "#df8e1d"
-blue = "#1e66f5"
-magenta = "#ea76cb"
-cyan = "#179299"
-white = "#6c6f85"
 
-[[colors.indexed_colors]]
-index = 16
-color = "#fe640b"
+black = "#6272a4"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#d6acff"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#ffffff"
 
-[[colors.indexed_colors]]
-index = 17
-color = "#dc8a78"
+[colors.search.matches]
+
+foreground = "#44475a"
+background = "#50fa7b"
+
+[colors.search.focused_match]
+
+foreground = "#44475a"
+background = "#ffb86c"
+
+[colors.footer_bar]
+
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.start]
+
+foreground = "#282a36"
+background = "#f1fa8c"
+
+[colors.hints.end]
+
+foreground = "#f1fa8c"
+background = "#282a36"

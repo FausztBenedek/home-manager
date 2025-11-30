@@ -20,6 +20,7 @@
     act
     editorconfig-checker
     tesseract
+    qutebrowser
     yq-go
     fzf
     unixtools.watch

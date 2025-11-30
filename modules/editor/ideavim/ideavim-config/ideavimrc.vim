@@ -24,8 +24,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-q> :q<CR>
 nnoremap <C-b> :bd<CR>
 
-inoremap <C-.> <esc>mqA;<esc>`qa| "Add ; to the end of the line and go back
-nnoremap <C-.> mqA;<esc>`q| "Add ; to the end of the line and go back
+inoremap <C-d> <esc>mqA;<esc>`qa| "Add ; to the end of the line and go back
+nnoremap <C-d> mqA;<esc>`q| "Add ; to the end of the line and go back
 inoremap <C-,> <esc>mqA,<esc>`qa| "Add , to the end of the line and go back
 nnoremap <C-,> mqA,<esc>`q| "Add , to the end of the line and go back
 

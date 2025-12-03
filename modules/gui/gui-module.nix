@@ -24,6 +24,7 @@
       nerd-fonts.zed-mono
       nerd-fonts.jetbrains-mono
       python312Packages.grip
+      qutebrowser
       dbeaver-bin
       # Depricated form:
       #(pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; }) # Available fonts https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix, then when I open apple fonts, the font name is visible

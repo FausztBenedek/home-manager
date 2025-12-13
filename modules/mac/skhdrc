@@ -117,38 +117,36 @@ windowmanager < ctrl - v : skhd -k "escape";\yabai -m space --focus 13
 windowmanager < shift - v : yabai -m window --space 13
 windowmanager < ctrl + shift - v : skhd -k "escape";\yabai -m window --space 13;\yabai -m space --focus 13
 
-# 0x0A is ~
-windowmanager < 0x0A : yabai -m space --focus 15
-windowmanager < ctrl - 0x0A : skhd -k "escape";\yabai -m space --focus 14
-windowmanager < shift - 0x0A : yabai -m window --space 14
-windowmanager < ctrl + shift - 0x0A : skhd -k "escape";\yabai -m window --space 14;\yabai -m space --focus 14
+# 0x12 is 1
+windowmanager < 0x12 : yabai -m space --focus 14
+windowmanager < ctrl - 0x12 : skhd -k "escape";\yabai -m space --focus 14
+windowmanager < shift - 0x12 : yabai -m window --space 14
+windowmanager < ctrl + shift - 0x12 : skhd -k "escape";\yabai -m window --space 14;\yabai -m space --focus 14
 
-# 0x12 is &
-windowmanager < 0x12 : yabai -m space --focus 15
-windowmanager < ctrl - 0x12 : skhd -k "escape";\yabai -m space --focus 15
-windowmanager < shift - 0x12 : yabai -m window --space 15
-windowmanager < ctrl + shift - 0x12 : skhd -k "escape";\yabai -m window --space 15;\yabai -m space --focus 15
+# 0x13 is 2
+windowmanager < 0x13 : yabai -m space --focus 15
+windowmanager < ctrl - 0x13 : skhd -k "escape";\yabai -m space --focus 15
+windowmanager < shift - 0x13 : yabai -m window --space 15
+windowmanager < ctrl + shift - 0x13 : skhd -k "escape";\yabai -m window --space 15;\yabai -m space --focus 15
 
-# 0x13 is {
-windowmanager < 0x13 : yabai -m space --focus 16
-windowmanager < ctrl - 0x13 : skhd -k "escape";\yabai -m space --focus 16
-windowmanager < shift - 0x13 : yabai -m window --space 16
-windowmanager < ctrl + shift - 0x13 : skhd -k "escape";\yabai -m window --space 16;\yabai -m space --focus 16
+# 0x14 is 3
+windowmanager < 0x14 : yabai -m space --focus 16
+windowmanager < ctrl - 0x14 : skhd -k "escape";\yabai -m space --focus 16
+windowmanager < shift - 0x14 : yabai -m window --space 16
+windowmanager < ctrl + shift - 0x14 : skhd -k "escape";\yabai -m window --space 16;\yabai -m space --focus 16
 
-# 0x14 is }
-windowmanager < 0x14 : yabai -m space --focus 17
-windowmanager < ctrl - 0x14 : skhd -k "escape";\yabai -m space --focus 17
-windowmanager < shift - 0x14 : yabai -m window --space 17
-windowmanager < ctrl + shift - 0x14 : skhd -k "escape";\yabai -m window --space 17;\yabai -m space --focus 17
+# 0x15 is 4
+windowmanager < 0x15 : yabai -m space --focus 17
+windowmanager < ctrl - 0x15 : skhd -k "escape";\yabai -m space --focus 17
+windowmanager < shift - 0x15 : yabai -m window --space 17
+windowmanager < ctrl + shift - 0x15 : skhd -k "escape";\yabai -m window --space 17;\yabai -m space --focus 17
 
-# 0x15 is -
-windowmanager < 0x15 : yabai -m space --focus 18
-windowmanager < ctrl - 0x15 : skhd -k "escape";\yabai -m space --focus 18
-windowmanager < shift - 0x15 : yabai -m window --space 18
-windowmanager < ctrl + shift - 0x15 : skhd -k "escape";\yabai -m window --space 18;\yabai -m space --focus 18
+# 0x17 is 5
+windowmanager < 0x17 : yabai -m space --focus 18
+windowmanager < ctrl - 0x17 : skhd -k "escape";\yabai -m space --focus 18
+windowmanager < shift - 0x17 : yabai -m window --space 18
+windowmanager < ctrl + shift - 0x17 : skhd -k "escape";\yabai -m window --space 18;\yabai -m space --focus 18
 
-# 0x17 is _
-windowmanager < 0x17 : yabai -m space --focus 19
-windowmanager < ctrl - 0x17 : skhd -k "escape";\yabai -m space --focus 19
-windowmanager < shift - 0x17 : yabai -m window --space 19
-windowmanager < ctrl + shift - 0x17 : skhd -k "escape";\yabai -m window --space 19;\yabai -m space --focus 19
+# 0x0A is 0 which will go to the full screen
+windowmanager < 0x0A : yabai -m space --focus $(yabai -m query --spaces | jq '.[] | select(."is-native-fullscreen" == true) | .index' | head -n 1)
+windowmanager < ctrl - 0x0A : skhd -k "escape";\yabai -m space --focus $(yabai -m query --spaces | jq '.[] | select(."is-native-fullscreen" == true) | .index' | head -n 1)

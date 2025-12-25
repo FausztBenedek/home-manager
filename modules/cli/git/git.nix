@@ -15,15 +15,19 @@
   };
   config =
     {
-      programs.git = {
-        enable = true;
-        userName = config.git.name;
-        userEmail = config.git.email;
+      programs = {
+        git = {
+          enable = true;
+          settings.user = {
+            name = config.git.name;
+            email = config.git.email;
+          };
+        };
         delta = {
           enable = true;
+          enableGitIntegration = true;
           options = {
             side-by-side = true;
-
           };
         };
       };

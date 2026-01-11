@@ -76,6 +76,9 @@ nmap ú ]
 nmap ő [
 nmap ]d <Action>(GotoNextError)
 nmap [d <Action>(GotoPreviousError)
+nmap ]c <Action>(NextDiff)
+nmap [c <Action>(PreviousDiff)
+nmap <leader>hl <Action>(Diff.ApplyLeftSide)
 
 nmap <C-t> <Action>(ActivateTerminalToolWindow)
 nmap <C-e><C-f> <Action>(SelectInProjectView)

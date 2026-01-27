@@ -18,6 +18,7 @@
       terragrunt
       nodePackages.aws-cdk
       awscli2
+      ssm-session-manager-plugin
       (pkgs.writeShellScriptBin "awsprofile-to-be-sourced" ''
         # Read the AWS config file and extract profile names
         # This was in the docs, but I just got an error message always, maybe because this script is run by bash version in nix.

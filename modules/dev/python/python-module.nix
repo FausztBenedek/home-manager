@@ -10,6 +10,7 @@
       (python3.withPackages (python-pkgs: [
         python-pkgs.kubernetes
         python-pkgs.debugpy
+
       ]))
     ];
   };

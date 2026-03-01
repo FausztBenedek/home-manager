@@ -24,6 +24,7 @@
     fzf
     unixtools.watch
     jq # to apply JSON path on stdout
+    xmlstarlet
     postgresql
     codex
     claude-code

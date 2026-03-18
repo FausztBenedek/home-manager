@@ -13,6 +13,7 @@
         }
     )
     gnumake
+    chisel
     wget
     rsync
     go

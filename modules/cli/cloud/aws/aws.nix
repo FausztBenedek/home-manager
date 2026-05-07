@@ -11,7 +11,6 @@
 
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "terraform"
-      "claude-code"
     ];
     home.packages = with pkgs; [
       terraform

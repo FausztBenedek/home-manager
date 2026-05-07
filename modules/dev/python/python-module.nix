@@ -6,8 +6,9 @@
 
     home.packages = with pkgs; [
       texliveSmall
-      pandoc
+      # pandoc
       (python3.withPackages (python-pkgs: [
+        python-pkgs.matplotlib
         python-pkgs.kubernetes
         python-pkgs.debugpy
 

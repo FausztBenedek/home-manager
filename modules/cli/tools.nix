@@ -1,5 +1,9 @@
-{ pkgs, system, inputs, ... }:
+{ pkgs, system, inputs, lib, ... }:
 {
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "claude-code"
+  ];
   home.packages = with pkgs; [
     inputs.benedek-neovim-flake.packages.${system}.default
     coreutils
@@ -27,7 +31,6 @@
     jq # to apply JSON path on stdout
     xmlstarlet
     postgresql
-    codex
     claude-code
     entr
     bat
@@ -53,6 +56,10 @@
   ];
   home.shellAliases = {
     cat = "${pkgs.bat}/bin/bat";
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
   };
   programs = {
     bat = {

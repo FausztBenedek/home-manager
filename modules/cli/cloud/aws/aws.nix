@@ -15,7 +15,7 @@
     home.packages = with pkgs; [
       terraform
       terragrunt
-      nodePackages.aws-cdk
+      # nodePackages.aws-cdk
       awscli2
       ssm-session-manager-plugin
       (pkgs.writeShellScriptBin "awsprofile-to-be-sourced" ''

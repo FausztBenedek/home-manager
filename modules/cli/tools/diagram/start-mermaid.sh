@@ -52,9 +52,9 @@ render
 
 # Open browser on first run
 if command -v open &>/dev/null; then
-	open "$HTML_FILE" # macOS
+		open "$HTML_FILE" # macOS
 elif command -v xdg-open &>/dev/null; then
-	xdg-open "$HTML_FILE" # Linux
+		xdg-open "$HTML_FILE" # Linux
 fi
 
 echo "Watching $MMD_FILE  (Ctrl-C to stop)"

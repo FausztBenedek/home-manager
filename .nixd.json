@@ -1,0 +1,10 @@
+{
+  "nixpkgs": {
+    "expr": "import (builtins.getFlake \"/Users/benedekfauszt/.config/home-manager\").inputs.nixpkgs { }"
+  },
+  "options": {
+    "home-manager": {
+      "expr": "(builtins.getFlake \"/Users/benedekfauszt/.config/home-manager\").homeConfigurations.fcb.options"
+    }
+  }
+}

@@ -35,3 +35,7 @@ yabai -m signal --add event=space_changed action="focus_window"
 
 # focus window after active display changes
 yabai -m signal --add event=display_changed action="focus_window"
+
+
+yabai -m signal --add event=application_activated app="Omnissa Horizon Client" action="echo '{\"ChangeLayer\":{\"new\":\"in-vm\"}}' | nc -w1 localhost 15829"
+yabai -m signal --add event=application_deactivated app="Omnissa Horizon Client" action="echo '{\"ChangeLayer\":{\"new\":\"hu\"}}' | nc -w1 localhost 15829"

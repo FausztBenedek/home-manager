@@ -20,6 +20,7 @@ ctrl + cmd - h : yabai -m window --focus west
 
 # Windowmanager mode
 windowmanager < ctrl - a ; default
+windowmanager < ctrl - m ; default
 windowmanager < escape ; default
 
 # Navigating on the same space between windows

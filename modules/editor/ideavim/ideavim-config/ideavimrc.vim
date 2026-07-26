@@ -24,10 +24,15 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-q> :q<CR>
 nnoremap <C-b> :bd<CR>
 
-inoremap <C-d> <esc>mqA;<esc>`qa| "Add ; to the end of the line and go back
-nnoremap <C-d> mqA;<esc>`q| "Add ; to the end of the line and go back
+inoremap <C-.> <esc>mqA;<esc>`qa| "Add ; to the end of the line and go back
+nnoremap <C-.> mqA;<esc>`q| "Add ; to the end of the line and go back
 inoremap <C-,> <esc>mqA,<esc>`qa| "Add , to the end of the line and go back
 nnoremap <C-,> mqA,<esc>`q| "Add , to the end of the line and go back
+
+nnoremap <leader>ss :<c-u>%s/f/t/g
+nnoremap <leader>sn :<c-u>%s//g<Left><Left>
+vnoremap <leader>ss :<c-u>'<,'>s/f/t/g
+vnoremap <leader>sn :<c-u>'<,'>s//g<Left><Left>
 
 nnoremap <C-y> e<c-u>normal! <cr>| "For tiling window manager mapping conflict
 nmap <esc> :nohl<cr>

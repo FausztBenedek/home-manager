@@ -42,7 +42,9 @@
     maven
     trivy
     graphviz
-    poetry
+    # poetry 2.4.1 fails 3 upstream tests (tests/installation/test_executor.py)
+    # in current nixpkgs; skip its check phase so the build succeeds.
+    (poetry.overridePythonAttrs (_: { doCheck = false; }))
     allure
     tealdeer
     poppler-utils

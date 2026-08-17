@@ -381,6 +381,64 @@ a build system that renders it immutable — a Nix store path, for instance — 
 tool MUST NOT attempt to modify that configuration, and the implementation MUST
 read priority from the mutable state at runtime.
 
+### C12 — Rotate display contents
+
+Move the windows of the active workspace from each live display to the next, so
+that a two-display arrangement exchanges its two screens and a three-display
+arrangement rotates through all three.
+
+- The operation MUST act only on the **active workspace**. Panes of other
+  workspaces MUST NOT be disturbed.
+- It MUST move **windows between displays**. It MUST NOT remap which pane belongs
+  to which display, and MUST NOT alter priority order. After the operation the
+  primary display is still the primary display, and C5 and C7 still place windows
+  exactly as they did before.
+- Every window on a participating display MUST travel, floating windows included
+  — a floating window is subject to C12 as it is to C2, C4, and C5.
+- Keyboard focus MUST stay on the same **window**, which is now on a different
+  display. Focus does not stay behind on the physical screen.
+- Repeating the operation *N* times, where *N* is the number of participating
+  displays, MUST restore the original arrangement.
+
+#### Which displays participate
+
+Only **live** displays participate. A sticky display is showing a pane of some
+other workspace by the user's explicit request (C6), and rotating that pane out
+would defeat the purpose of the toggle; sticky displays MUST therefore be skipped,
+and the cycle MUST close over the live displays alone.
+
+- With fewer than two live displays the operation MUST be a no-op and MUST NOT
+  error. This covers the single-display case of C10.
+
+#### Cycle order
+
+The participating displays MUST be ordered by **reading order**, derived from
+monitor geometry as reported by the platform:
+
+1. Group displays into rows: two displays are in the same row when their vertical
+   extents overlap.
+2. Order rows from top to bottom.
+3. Order the displays within a row from left to right.
+
+Contents move from each display to the next in that sequence, and from the last
+display back to the first.
+
+Reading order is *derived*, never declared — like the adjacency of §3.2 and unlike
+the priority order of §3.2. Rearranging monitors in the OS display settings MUST
+change the cycle with no configuration change. Priority order MUST NOT influence
+it.
+
+```
+[A][B][C]   →  A B C   →  A→B, B→C, C→A
+
+[A][B]      →  A B C   →  A→B (right), B→C (down), C→A (wrap)
+   [C]
+
+[A]
+[B]         →  A B C   →  contents move down, bottom wraps to top
+[C]
+```
+
 ### Optional capabilities
 
 These MAY be implemented and their precise behaviour MAY differ between platforms.
@@ -425,6 +483,7 @@ does **not** conform.
 | Send window to workspace | `shift-`*key* | C5 |
 | Send and follow, exit mode | `ctrl-shift-`*key* | C5 |
 | Toggle display stickiness | `ctrl-9` | C6 |
+| Rotate display contents | `o` | C12 |
 | Fullscreen toggle | `f` | C8 |
 | Float toggle | `z` | C9 |
 
@@ -621,6 +680,33 @@ pass. Run with at least two displays attached unless stated otherwise.
     platform. Every row MUST match. Any difference MUST correspond to a documented
     platform reservation per §5, and MUST be the minimum substitution.
 
+### Rotate display contents (C12)
+
+> Numbered from 41 although the section sits here, so that the numbering of items
+> 1–40 stays stable for anything that already cites them. Checklist numbers are
+> append-only.
+
+41. With two displays, place a distinguishable window on each and press `o`. The
+    two MUST exchange displays. Press `o` again — the original arrangement MUST
+    return.
+42. Switch to another workspace and back. That workspace MUST be unaffected by
+    step 41.
+43. After step 41, send a window to an empty workspace and open a new window.
+    Both MUST still target the same physical display as before the rotation —
+    priority MUST be unchanged.
+44. With three displays, note the reading order of the arrangement, then press `o`
+    three times. Contents MUST advance one position each press and MUST return to
+    the start on the third.
+45. Rearrange the monitors in the OS display settings so the reading order
+    differs, and repeat step 44 without editing any configuration. The cycle MUST
+    follow the new arrangement.
+46. Make one display sticky and press `o`. The sticky display's contents MUST NOT
+    move; the live displays MUST rotate among themselves. With only one live
+    display, and again with only one display attached, `o` MUST do nothing and
+    MUST NOT error.
+47. Focus a window, press `o`, and type. Input MUST go to the same window on its
+    new display.
+
 ### Nested sessions (§6)
 
 39. Inside a guest session, the guest entry key MUST open the guest's mode and the
@@ -646,19 +732,31 @@ inferred.
    refusing the toggle, releasing another display, which one it picks, whether it
    tells the user — is deliberately unspecified.
 4. **No wrapping** at the outermost display edges.
+5. **C12 skips sticky displays.** Nothing in C6 required this — a sticky display
+   could equally have participated. Skipping was chosen because a sticky display
+   is deliberately showing another workspace's pane, and rotating that pane away
+   would undo the toggle the user just pressed.
+6. **C12 keeps focus on the window, not the display.** The alternative — leaving
+   focus on the physical screen, so a different window becomes focused — was
+   considered and rejected as more surprising.
 
 **Left to deployment configuration:**
 
-5. Priority order only (§3.2). Nothing else about displays is configured —
+7. Priority order only (§3.2). Nothing else about displays is configured —
    spatial adjacency is derived from platform geometry, in all four directions,
    so monitor arrangements including vertical stacking need no declaration and
-   rearranging monitors requires no config change.
+   rearranging monitors requires no config change. The reading order of C12 is
+   likewise derived, not configured.
 
 **Known implementation risk:**
 
-6. C2 is native in none of the three target window managers. Each will need a
+8. C2 is native in none of the three target window managers. Each will need a
    wrapper that issues per-display commands. On macOS the ordering matters —
    switching the focus-target display last is the simplest way to land focus
    correctly, since `space --focus` also moves focus.
-7. C7 depends on event hooks with known timing sensitivity, worst on GlazeWM.
+9. C7 depends on event hooks with known timing sensitivity, worst on GlazeWM.
    The specified fallback to native placement is the intended escape hatch.
+10. C12 is native in none of the three either, and a naive implementation that
+    moves each display's windows to the next display in sequence will carry
+    already-moved windows along with them. The window set of every participating
+    display must be captured *before* any window moves.

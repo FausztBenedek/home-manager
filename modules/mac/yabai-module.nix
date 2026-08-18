@@ -31,6 +31,7 @@ let
     "wm-window-send" # C5
     "wm-sticky-toggle" # C6
     "wm-place-new-window" # C7
+    "wm-rotate-displays" # C12
     "wm-reconcile" # 3.3
     "wm-adapt" # C10
     "wm-display-priority" # C11
@@ -115,8 +116,8 @@ let
     # Two things here are outside the spec rather than in conflict with it:
     #   * the border colours on mode entry -- section 7 puts mode indication out of scope;
     #   * the gaps-off mode on ctrl-` -- section 7 puts that out of scope too.
-    # The bare 9 / f / z / i / shift-7 bindings are the in-mode halves of the
-    # ctrl-prefixed pairs C1 requires; section 5 lists the ctrl variant.
+    # Each toggle is bound twice: section 5 names one half of the pair (ctrl-9 for
+    # stickiness, bare f / z / o for the rest) and C1 requires the other.
 
     :: default : paint-borders-yabai-main-mode
     :: ${mode} @ : paint-borders-yabai-window-manager-mode
@@ -163,6 +164,13 @@ let
     # C6 -- display stickiness. Section 5 binds this to ctrl-9.
     # ---------------------------------------------------------------------------
     ${toggle "0x19" "wm-sticky-toggle"}
+
+    # ---------------------------------------------------------------------------
+    # C12 -- rotate the contents of the live displays by one position, in the
+    # reading order of the monitor arrangement. Section 5 binds this to bare `o`;
+    # ctrl-o is the act-and-leave-the-mode twin C1 requires.
+    # ---------------------------------------------------------------------------
+    ${toggle "o" "wm-rotate-displays"}
 
     # ---------------------------------------------------------------------------
     # C8 -- fullscreen, confined to the pane. Deliberately not macOS native
@@ -221,8 +229,8 @@ in
         because ctrl-m is Return.
 
         An alias must not collide with anything bound inside the mode -- in
-        particular not with a workspace key, `h`/`j`/`k`/`l`, `f`, `z`, `i`, `9` or
-        `7`.
+        particular not with a workspace key, `h`/`j`/`k`/`l`, `f`, `z`, `i`, `o`,
+        `9` or `7`.
       '';
     };
 

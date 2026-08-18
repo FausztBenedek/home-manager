@@ -51,6 +51,7 @@ conformance item 38.
 | Send window to workspace | `shift-`*key* | | `wm-window-send <ws>` |
 | Send and follow, exit | `ctrl-shift-`*key* | | `wm-window-send <ws> --follow` |
 | Toggle display stickiness | `9` / `ctrl-9` | `0x19` | `wm-sticky-toggle` |
+| Rotate display contents | `o` / `ctrl-o` | same | `wm-rotate-displays` |
 | Fullscreen toggle | `f` / `ctrl-f` | same | `yabai -m window --toggle zoom-fullscreen` |
 | Float toggle | `z` / `ctrl-z` | same | `yabai -m window --toggle float` |
 | Toggle split direction | `i` / `ctrl-i` | same | `yabai -m window --toggle split` |
@@ -58,8 +59,10 @@ conformance item 38.
 | Resize | `alt-h/j/k/l` | same | `yabai -m window --resize …` |
 | Directional focus, globally | `ctrl-cmd-h/j/k/l` | same | `wm-focus-dir …` — the one addition section 5 permits |
 
-Bare `9`, `f`, `z`, `i` and `shift-7` are the stay-in-mode halves of pairs whose
-`ctrl` variant section 5 lists; C1 requires both to exist.
+Each of these is bound twice. Section 5 names one half of the pair — `ctrl-9` for
+stickiness, bare `f`, `z` and `o` for the rest — and C1 requires the other, so
+`9`, `i` and `shift-7` are stay-in-mode halves while `ctrl-f`, `ctrl-z` and
+`ctrl-o` are act-and-exit halves.
 
 Workspace keys, and how skhd spells them on
 `mac/us-benedek-xkb-querty.keylayout` (skhd matches physical keycodes, so digits
@@ -102,6 +105,42 @@ space-UUID → pane-label map is kept in `panes` (see below) and re-applied by
 `yabairc.sh` calls `wm-adapt`, so a yabai restart restores the labels on its own.
 This is why yabai restarting is not a reason to re-run `wm-reconcile`.
 
+### Rotation moves windows between panes, not panes between displays
+
+`wm-rotate-displays` (C12) never touches the pane↔display mapping. Pane
+`wm.<ws>.<rank>` stays on the display of that rank, and rotating means moving the
+*windows* of `wm.<ws>.<rank>` into the pane of the next display in the cycle. That
+is what keeps priority order — and therefore C5 and C7 placement — unchanged by a
+rotation (item 43), and it is why panes of other workspaces are never addressed
+(item 42).
+
+Two orders are in play here and they are not the same one:
+
+* **priority order** (`wm_live_ranked`) decides *which* displays take part —
+  sticky ones sit the rotation out — and names their panes;
+* **reading order**, derived from the display frames in `wm_query_displays`,
+  decides the *cycle*: rows by overlapping vertical extent, rows top to bottom,
+  left to right within a row.
+
+Reading order is never stored, for the same reason adjacency is never stored:
+rearranging monitors in System Settings has to change the cycle with no
+configuration change (item 45). `wm_live_ranked` is the tempting helper here and
+is the wrong one for the cycle — it hands back priority order, which on a machine
+whose primary monitor is not the leftmost gives a different, and wrong, rotation.
+
+Every participating display's window set is captured *before* any window moves.
+Moving display by display without that snapshot walks straight into the trap spec
+9.10 names: windows moved onto a display get picked up again and carried on to the
+next one, so a rotation over three displays would pile everything onto the last.
+
+Floating windows need no special case. A pane's `windows` list is its whole
+membership, floating windows included, and on a cross-display `window --space`
+yabai re-frames the window itself: tiled windows are re-tiled, floating ones are
+moved relative to the new display origin and clamped if the destination is
+smaller. All three were measured on yabai 7.1.25 rather than assumed, because the
+opposite — `--space` moving a window's space without moving its frame — would have
+left floating windows drawn over the monitor they came from.
+
 ### Files
 
 | Path | Role |
@@ -126,8 +165,8 @@ This is why yabai restarting is not a reason to re-run `wm-reconcile`.
 | `wm-status` | active workspace, effective ranks, sticky set, visible pane per display. |
 
 The rest (`wm-workspace-focus`, `wm-focus-dir`, `wm-move-dir`, `wm-window-send`,
-`wm-sticky-toggle`, `wm-place-new-window`) are what the key bindings and yabai
-signals call.
+`wm-sticky-toggle`, `wm-rotate-displays`, `wm-place-new-window`) are what the key
+bindings and yabai signals call.
 
 ### Mutable state
 
@@ -166,7 +205,7 @@ automatically given the lowest unused priority and every binding keeps working.
 
 ## Conformance
 
-The spec's section 8 is a 40-item checklist and is the acceptance test. Notes on the
+The spec's section 8 is a 47-item checklist and is the acceptance test. Notes on the
 items that depend on choices this implementation was free to make:
 
 - **item 17** (all displays sticky) — the toggle is refused for the last live
@@ -184,6 +223,12 @@ items that depend on choices this implementation was free to make:
 - **item 30** (priorities unchanged after restarting the window manager) — both
   the priorities *and* the pane identities are kept outside yabai, keyed on UUIDs
   that macOS keeps stable.
+- **items 41–47** (rotation) — the cycle is recomputed from the display frames on
+  every press, so item 45 needs no step beyond rearranging the monitors. Item 46
+  falls out of `wm_live_ranked`: fewer than two live displays and the script
+  returns 0 having done nothing. If a participating display's pane does not exist
+  yet — `wm-reconcile` never run — nothing is moved and the script says so, rather
+  than rotating part of the way round.
 - **item 33** (kill the priority tool mid-assignment) — two layers: a
   `trap … EXIT INT TERM HUP`, plus a watchdog inside each cue process that exits
   once the tool's pid disappears. The second covers `SIGKILL`, which no trap can.
@@ -196,10 +241,43 @@ C5 send and send-and-follow, C6 item 18 (the last live display refuses to become
 sticky, exit status 0), C8 pane-confined zoom with native fullscreen staying off,
 C9 float, and C11 `--set` byte-identical on a rerun.
 
-Everything that genuinely needs two or more monitors — C2 pairing across displays,
-C3/C4 crossing bezels, C5 primary→secondary→primary, stickiness items 14–17 and
-19, degradation items 23–25, rearrangement item 26, and the C11 cues — still needs
-a pass with the externals attached.
+Also the one-display clause of C12 **item 46**: `o` with a single display attached
+changes no space and exits 0.
+
+### Verified on two displays (C12)
+
+Built-in plus one external, side by side, with the external as the primary — a
+useful arrangement to test on, because there priority order is the *reverse* of
+reading order.
+
+- **item 41** — one window per display, `o` exchanges them, `o` again restores the
+  original arrangement. Both tiled and floating windows were checked, and the
+  frames confirm the windows are genuinely re-framed onto the other monitor rather
+  than left drawn over the one they came from.
+- **item 42** — a rotation changes the panes of the active workspace and nothing
+  else; the full pane dump differs in exactly those two lines. Switching to
+  another workspace and back leaves it as it was.
+- **item 43** — after rotating, a send to an empty workspace still lands on the
+  primary display, and a new window still takes the highest-priority empty pane.
+  The rank↔display mapping is identical before and after.
+- **item 46**, sticky half — with the built-in sticky only one live display
+  remains, and `o` moves nothing and exits 0 with nothing on stderr.
+- **item 47** — focused window, `o`, then synthesised keystrokes: the text arrived
+  in that window on its new display.
+
+Not verified, and honestly cannot be with two monitors: **items 44 and 45**, which
+need three displays to tell a rotation from a swap and to make a rearrangement
+change the cycle, and the clause of **item 46** where live displays rotate among
+themselves *around* a sticky one, which also needs a third display. The reading
+order those items exercise was checked against synthetic display frames — the
+three arrangements the spec draws, plus a stagger where a short display sits
+beside a tall one — but that exercises the geometry rule, not yabai, so it is not
+a pass on either item.
+
+Everything else that genuinely needs two or more monitors — C2 pairing across
+displays, C3/C4 crossing bezels, C5 primary→secondary→primary, stickiness items
+14–17 and 19, degradation items 23–25, rearrangement item 26, and the C11 cues —
+still needs a pass of its own.
 
 Known gap on the sibling implementation: `modules/linux/compositor/hyprland`
 does not yet conform on its own terms — it enters the mode with `CONTROL+A`,

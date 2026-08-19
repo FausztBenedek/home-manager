@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1780679968,
-        "narHash": "sha256-eZ4MaUXwRBhvF/bTMUdrhNFeBir52g2Vflo1gvlWpAk=",
+        "lastModified": 1787170178,
+        "narHash": "sha256-ICkkHw28/w3t/7pw/RTSCVhOUmujpWZ+3DoKJ/BsATo=",
         "owner": "FausztBenedek",
         "repo": "nvim-flake",
-        "rev": "5cddba52e9f065a876f54be94d2bbf889b00daa7",
+        "rev": "9d96e5c7d0777e9e1a69db8fa47e0d6fb18acb32",
         "type": "github"
       },
       "original": {
